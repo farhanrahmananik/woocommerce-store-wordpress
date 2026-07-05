@@ -5,7 +5,7 @@ A portfolio-ready WooCommerce store project being built step by step with WordPr
 ## Current Status
 
 - Scope 1: Environment Setup — completed
-- Scope 2: Project Initialization — in progress
+- Scope 2: Project Initialization — completed
 
 ## Verified Local Environment
 
@@ -25,6 +25,8 @@ A portfolio-ready WooCommerce store project being built step by step with WordPr
 ## Repository Notes
 
 WordPress core, `wp-config.php`, uploads, logs, LocalWP runtime files, and generated files are intentionally ignored. Custom theme and plugin folders will be explicitly tracked later, only when their respective development scopes begin.
+
+The Git repository is initialized on `main`, the baseline files are committed, the GitHub remote is connected, and `main` has been pushed to `origin/main`.
 
 ## Scope Boundaries
 
