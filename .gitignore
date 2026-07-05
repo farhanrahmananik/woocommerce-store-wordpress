@@ -45,8 +45,10 @@
 /app/public/wp-content/themes/*
 /app/public/wp-content/plugins/*
 /app/public/wp-content/mu-plugins/*
-# When custom development begins, explicitly allowlist only its folder, e.g.:
-# !/app/public/wp-content/themes/my-custom-theme/
+# Custom theme development has begun; explicitly allowlist only its folder.
+!/app/public/wp-content/themes/desknest/
+!/app/public/wp-content/themes/desknest/**
+# When further custom plugin development begins, explicitly allowlist only its folder, e.g.:
 # !/app/public/wp-content/plugins/my-custom-plugin/
 
 # Dependency and generated build output
