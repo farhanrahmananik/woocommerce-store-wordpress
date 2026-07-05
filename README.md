@@ -7,10 +7,13 @@ A portfolio-ready WooCommerce store project being built step by step with WordPr
 - Scope 1: Environment Setup — completed
 - Scope 2: Project Initialization — completed
 - Scope 3: Store Requirements & Architecture — completed
+- Scope 4: Theme & Design System — completed
 
 The project blueprint is documented in [Store Requirements & Architecture](docs/store-requirements-architecture.md). The locked concept is **DeskNest** — a Germany-first desk-setup and workspace accessories WooCommerce store concept.
 
-Scope 3 covers documentation and planning only. No WooCommerce setup or store implementation has started yet.
+The DeskNest theme and design-system blueprint is documented in [Theme & Design System](docs/theme-design-system.md). The selected direction is a custom DeskNest block-theme architecture using `theme.json`, native templates, reusable patterns, centralized design tokens, and minimal JavaScript.
+
+Scopes 3 and 4 cover documentation and planning only. No custom theme folder has been created or activated, and no WooCommerce setup or storefront implementation has started yet.
 
 ## Verified Local Environment
 
