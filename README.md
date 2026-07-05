@@ -8,12 +8,15 @@ A portfolio-ready WooCommerce store project being built step by step with WordPr
 - Scope 2: Project Initialization — completed
 - Scope 3: Store Requirements & Architecture — completed
 - Scope 4: Theme & Design System — completed
+- Scope 5: WooCommerce Foundation — completed
 
 The project blueprint is documented in [Store Requirements & Architecture](docs/store-requirements-architecture.md). The locked concept is **DeskNest** — a Germany-first desk-setup and workspace accessories WooCommerce store concept.
 
 The DeskNest theme and design-system blueprint is documented in [Theme & Design System](docs/theme-design-system.md). The selected direction is a custom DeskNest block-theme architecture using `theme.json`, native templates, reusable patterns, centralized design tokens, and minimal JavaScript.
 
-Scopes 3 and 4 cover documentation and planning only. No custom theme folder has been created or activated, and no WooCommerce setup or storefront implementation has started yet.
+The WooCommerce foundation baseline — installation, Germany/EUR settings, default pages, and validation — is documented in [WooCommerce Foundation](docs/woocommerce-foundation.md). This is a foundation baseline only: no products, taxes, payments, shipping, or custom storefront UI have been configured yet.
+
+Scopes 3 and 4 cover documentation and planning only. No custom theme folder has been created or activated. Scope 5 installed and configured WooCommerce's foundation settings only; no products, taxes, payments, shipping, or storefront implementation has started yet.
 
 ## Verified Local Environment
 
@@ -38,7 +41,7 @@ The Git repository is initialized on `main`, the baseline files are committed, t
 
 ## Scope Boundaries
 
-This repository currently documents the initialized LocalWP WordPress project. WooCommerce configuration, the theme and design system, products, cart, checkout, customer accounts, payments, and shipping will be handled in later scopes.
+This repository currently documents the initialized LocalWP WordPress project, the theme and design-system blueprint, and the WooCommerce foundation baseline (Germany/EUR settings and default pages only). Products, cart, checkout, customer accounts, payments, shipping, and the custom storefront theme will be handled in later scopes.
 
 ## Local Setup
 
