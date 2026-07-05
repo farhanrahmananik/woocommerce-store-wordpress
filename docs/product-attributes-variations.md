@@ -75,6 +75,8 @@ Each attribute assignment is `visible=true` and `variation=true`. All five paren
 
 SKU suffixes extend the base SKU per the naming convention already documented in [Product Catalog](product-catalog.md#sku-naming-convention).
 
+The "Stock status" and "Manage stock" columns above reflect this scope's original end state. **Update following Scope 8**: variation-level quantity tracking was later enabled for all 11 variations (`manage_stock=true`, each with its own stock quantity), including one intentional out-of-stock variation (`DN-PRD-001-GRN`). See [Inventory & Stock Management](inventory-stock-management.md) for the current live state.
+
 ## Products Intentionally Left Simple
 
 The remaining 19 products stay simple products, unchanged from Scope 6, because none were flagged as variable-product candidates in the Scope 6 catalog plan:
@@ -95,7 +97,7 @@ The remaining 19 products stay simple products, unchanged from Scope 6, because 
 | Product type counts | 19 simple, 5 variable - matches plan |
 | Product variation count | 11 - matches plan |
 | Pricing | All 11 variation prices match the approved plan exactly |
-| Stock / manage stock | All 11 variations `instock`, `manage_stock=false` |
+| Stock / manage stock | All 11 variations `instock`, `manage_stock=false` at the end of this scope (superseded by Scope 8 - see [Inventory & Stock Management](inventory-stock-management.md)) |
 | Non-target products | All 19 confirmed unchanged: still simple, 0 attributes, original prices |
 | Storefront HTTP checks | All 5 variable product pages returned HTTP 200, no PHP fatal errors, and each page's expected variation term names (e.g. Black/Silver, 60 cm/80 cm, Compact/Standard, Black/Grey/Green) were found in the rendered page content |
 
@@ -103,13 +105,13 @@ The remaining 19 products stay simple products, unchanged from Scope 6, because 
 
 - Variation attributes are stored and matched using **term slugs** (for example `pa_finish=black`, `pa_size=60-cm`), not term display names, per WooCommerce's variation-matching requirements.
 - Each variable parent's own price field was cleared; a variable product's displayed price/price range is derived from its variations, not from a parent-level price field.
-- Stock management remains disabled by design for every variation (`manage_stock=false`), consistent with the Scope 6 decision to leave inventory workflows out of scope. Creating a variation does not require stock management to be enabled.
+- Stock management was left disabled by design for every variation (`manage_stock=false`) at the end of this scope, consistent with the Scope 6 decision to leave inventory workflows out of scope; creating a variation does not require stock management to be enabled. (Update: Scope 8 later enabled variation-level quantity tracking for all 11 variations while keeping each variable parent's own stock tracking disabled - see [Inventory & Stock Management](inventory-stock-management.md).)
 - No product images or featured images are assigned to any variation or parent in this scope; image/media work remains outside this scope.
 - The rendered variation selector on the frontend appears as block-based WooCommerce markup (the active theme, Twenty Twenty-Five, is a block theme), not the classic-theme `variations_form` shortcode markup; this is expected and was confirmed by checking for the expected term names in the rendered page instead of a classic-only CSS class.
 
 ## Limitations / Next Scope Notes
 
-- Inventory-specific behavior (stock quantities, low-stock thresholds, backorders) is out of scope here and will be handled in a later, separately approved inventory scope.
+- Inventory-specific behavior (stock quantities, low-stock thresholds, backorders) was out of scope here at the time this scope ended. (Update: Scope 8 later implemented this - see [Inventory & Stock Management](inventory-stock-management.md).)
 - Storefront visual polish for the variation selector and product pages is deferred to a later storefront/theme scope.
 - Cart, checkout, and customer-account workflows involving these variable products remain unimplemented and are later scopes.
 - Taxes, shipping, and payments remain unconfigured, consistent with all prior scopes.

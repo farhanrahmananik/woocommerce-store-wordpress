@@ -11,6 +11,7 @@ A portfolio-ready WooCommerce store project being built step by step with WordPr
 - Scope 5: WooCommerce Foundation — completed
 - Scope 6: Product Catalog — completed
 - Scope 7: Product Attributes & Variations — completed
+- Scope 8: Inventory & Stock Management — completed
 
 The project blueprint is documented in [Store Requirements & Architecture](docs/store-requirements-architecture.md). The locked concept is **DeskNest** — a Germany-first desk-setup and workspace accessories WooCommerce store concept.
 
@@ -20,9 +21,11 @@ The WooCommerce foundation baseline — installation, Germany/EUR settings, defa
 
 The implemented DeskNest catalog is documented in [Product Catalog](docs/product-catalog.md). It contains 6 DeskNest product categories and 24 published products.
 
-Global product attributes and product variations are documented in [Product Attributes & Variations](docs/product-attributes-variations.md). Three global attributes (Color, Finish, Size) and 11 variations across 5 previously simple products are implemented on the local development site; product images, inventory workflows, and storefront visual polish remain unimplemented.
+Global product attributes and product variations are documented in [Product Attributes & Variations](docs/product-attributes-variations.md). Three global attributes (Color, Finish, Size) and 11 variations across 5 previously simple products are implemented on the local development site; product images and storefront visual polish remain unimplemented.
 
-Scopes 3 and 4 cover documentation and planning only. No custom theme folder has been created or activated. Scope 5 established the WooCommerce foundation, Scope 6 implemented the category and simple-product catalog, and Scope 7 implemented global attributes and variations for 5 of those products on the local development environment; later commerce and storefront scopes remain unstarted.
+Inventory and stock management are documented in [Inventory & Stock Management](docs/inventory-stock-management.md). All 19 simple products and 11 variations have quantity tracking enabled with realistic stock levels, the 5 variable parent products remain parent-level untracked by WooCommerce design, backorders are disabled everywhere, and two items are intentionally out of stock for testing. Storefront/cart/checkout behavior with this inventory has not been tested yet.
+
+Scopes 3 and 4 cover documentation and planning only. No custom theme folder has been created or activated. Scope 5 established the WooCommerce foundation, Scope 6 implemented the category and simple-product catalog, Scope 7 implemented global attributes and variations for 5 of those products, and Scope 8 applied an inventory/stock-management policy across the catalog on the local development environment; later commerce and storefront scopes remain unstarted.
 
 ## Verified Local Environment
 
@@ -47,7 +50,7 @@ The Git repository is initialized on `main`, the baseline files are committed, t
 
 ## Scope Boundaries
 
-This repository currently documents the initialized LocalWP WordPress project, the theme and design-system blueprint, the WooCommerce foundation baseline, the implemented product catalog, and the implemented global attributes and variations for 5 products. Inventory workflows, cart, checkout, customer accounts, payments, shipping, and the custom storefront theme will be handled in later scopes.
+This repository currently documents the initialized LocalWP WordPress project, the theme and design-system blueprint, the WooCommerce foundation baseline, the implemented product catalog, the implemented global attributes and variations for 5 products, and the applied inventory/stock-management policy. Cart, checkout, customer accounts, payments, shipping, and the custom storefront theme will be handled in later scopes.
 
 ## Local Setup
 
@@ -58,6 +61,6 @@ This repository currently documents the initialized LocalWP WordPress project, t
 ## Current Limitations
 
 - 5 of the 24 products are variable products with global attributes and variations; the remaining 19 are simple products. No product images have been added.
-- Inventory workflows, taxes, payments, shipping, cart, checkout, and account customization have not started.
+- Inventory quantities and stock status are applied at the database level only; storefront/cart/checkout behavior with this inventory has not been tested. Taxes, payments, shipping, cart, checkout, and account customization have not started.
 - The custom DeskNest theme has been planned but not created or activated.
 - No production deployment exists yet.

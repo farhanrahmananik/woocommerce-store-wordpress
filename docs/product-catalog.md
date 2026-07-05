@@ -19,7 +19,9 @@ The approved catalog was implemented in WooCommerce at a deliberately limited fo
 
 Scope 6 remained limited to the approved category and simple-product catalog. Product attributes, product variations, advanced inventory workflows, taxes, shipping, payments, cart, checkout, customer accounts, storefront UI, plugins, and theme changes remained excluded from Scope 6 itself.
 
-**Update following Scope 7**: global product attributes and variations have since been implemented for 5 of the 24 products (`DN-ERG-001`, `DN-ERG-002`, `DN-ORG-001`, `DN-LIT-001`, `DN-PRD-001`), which are now variable products with 11 total variations. The other 19 products remain simple products, unchanged. Full details are documented in [Product Attributes & Variations](product-attributes-variations.md). Product tags, featured images, inventory workflows, taxes, shipping, payments, cart, checkout, accounts, plugins, themes, and storefront UI remain unimplemented.
+**Update following Scope 7**: global product attributes and variations have since been implemented for 5 of the 24 products (`DN-ERG-001`, `DN-ERG-002`, `DN-ORG-001`, `DN-LIT-001`, `DN-PRD-001`), which are now variable products with 11 total variations. The other 19 products remain simple products, unchanged. Full details are documented in [Product Attributes & Variations](product-attributes-variations.md). Product tags, featured images, taxes, shipping, payments, cart, checkout, accounts, plugins, themes, and storefront UI remain unimplemented.
+
+**Update following Scope 8**: an inventory and stock-management policy has since been applied. All 19 simple products and all 11 variations now have quantity tracking enabled with realistic stock levels; the 5 variable parent products remain parent-level untracked, consistent with WooCommerce's own design (availability is derived from their variations). Full details, including two intentional out-of-stock test items, are documented in [Inventory & Stock Management](inventory-stock-management.md). Storefront/cart/checkout behavior with this inventory has not been tested yet.
 
 ## Implementation Summary
 
@@ -29,7 +31,7 @@ Scope 6 remained limited to the approved category and simple-product catalog. Pr
 - Every DeskNest product has `publish` status and visible catalog visibility.
 - Every DeskNest product is assigned to exactly one product category.
 - No product image or featured image is assigned in this scope.
-- Stock management is intentionally disabled for every product in this scope; no stock quantities, thresholds, or backorder rules were added.
+- Stock management was intentionally disabled for every product at the end of Scope 6; no stock quantities, thresholds, or backorder rules existed yet. (Update: Scope 8 later enabled quantity tracking for all 19 simple products - see [Inventory & Stock Management](inventory-stock-management.md).)
 - Future variable-product candidates remained simple products at the end of Scope 6; no product attributes or variations existed yet. (Update: 5 of these candidates became variable products in Scope 7 - see [Product Attributes & Variations](product-attributes-variations.md).)
 
 ## Product Catalog Strategy for DeskNest
@@ -166,7 +168,7 @@ This convention must remain unique across all future simple products, variations
 
 ## Validation Summary
 
-The implemented WooCommerce catalog was validated with the following final state **at the end of Scope 6**. Product variations, global attributes, and product-level attribute assignments have since changed - see the Scope 7 update note above and [Product Attributes & Variations](product-attributes-variations.md) for the current live counts (5 variable products, 11 variations, 3 global attributes).
+The implemented WooCommerce catalog was validated with the following final state **at the end of Scope 6**. Product variations, global attributes, product-level attribute assignments, and stock management have since changed - see the Scope 7 and Scope 8 update notes above, [Product Attributes & Variations](product-attributes-variations.md), and [Inventory & Stock Management](inventory-stock-management.md) for the current live state (5 variable products, 11 variations, 3 global attributes, 30 items with stock management enabled).
 
 | Item | Final state |
 | --- | ---: |

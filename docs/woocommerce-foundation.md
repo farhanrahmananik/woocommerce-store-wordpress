@@ -90,7 +90,7 @@ The following areas were intentionally left untouched in this scope and are defe
 - **Products** — none created.
 - **Product categories beyond default** — only WooCommerce's built-in "Uncategorized" category exists.
 - **Attributes / variations** — no global attributes, no variations.
-- **Inventory thresholds** — not configured.
+- **Inventory thresholds** — not configured during this scope. (Update: Scope 8 later kept the global low-stock threshold at 2 and no-stock threshold at 0, unchanged from WooCommerce's defaults, and applied per-product/variation quantity tracking on top - see [Inventory & Stock Management](inventory-stock-management.md).)
 - **Taxes** — `woocommerce_calc_taxes = no`, `woocommerce_prices_include_tax = no`, `woocommerce_tax_based_on = shipping` (WooCommerce defaults, unchanged).
 - **Payments** — `bacs`, `cheque`, and `cod` gateways are present but all `enabled = no`. No gateway configured or enabled.
 - **Shipping** — no shipping zones or methods configured (0 zones).
