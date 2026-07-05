@@ -15,9 +15,11 @@ This document is the catalog planning and implementation record for the DeskNest
 
 The catalog follows directly from the strategy, category set, price range, and attribute/taxonomy planning recorded in [Store Requirements & Architecture](store-requirements-architecture.md), and uses the Germany/EUR foundation recorded in [WooCommerce Foundation](woocommerce-foundation.md).
 
-The approved catalog has now been implemented in WooCommerce at a deliberately limited foundation level: six DeskNest product categories and 24 published simple products exist. The implementation did not create product attributes, variations, tags, featured images, or inventory workflows, and it did not change taxes, payments, shipping, cart, checkout, accounts, plugins, themes, or storefront UI.
+The approved catalog was implemented in WooCommerce at a deliberately limited foundation level: six DeskNest product categories and 24 published products exist. At the end of Scope 6, the implementation had not created product attributes, variations, tags, featured images, or inventory workflows, and it did not change taxes, payments, shipping, cart, checkout, accounts, plugins, themes, or storefront UI.
 
-Scope 6 remains limited to the approved category and simple-product catalog. Product attributes, product variations, advanced inventory workflows, taxes, shipping, payments, cart, checkout, customer accounts, storefront UI, plugins, and theme changes remain excluded from Scope 6 overall.
+Scope 6 remained limited to the approved category and simple-product catalog. Product attributes, product variations, advanced inventory workflows, taxes, shipping, payments, cart, checkout, customer accounts, storefront UI, plugins, and theme changes remained excluded from Scope 6 itself.
+
+**Update following Scope 7**: global product attributes and variations have since been implemented for 5 of the 24 products (`DN-ERG-001`, `DN-ERG-002`, `DN-ORG-001`, `DN-LIT-001`, `DN-PRD-001`), which are now variable products with 11 total variations. The other 19 products remain simple products, unchanged. Full details are documented in [Product Attributes & Variations](product-attributes-variations.md). Product tags, featured images, inventory workflows, taxes, shipping, payments, cart, checkout, accounts, plugins, themes, and storefront UI remain unimplemented.
 
 ## Implementation Summary
 
@@ -28,13 +30,13 @@ Scope 6 remains limited to the approved category and simple-product catalog. Pro
 - Every DeskNest product is assigned to exactly one product category.
 - No product image or featured image is assigned in this scope.
 - Stock management is intentionally disabled for every product in this scope; no stock quantities, thresholds, or backorder rules were added.
-- Future variable-product candidates remain simple products. No product attributes or variations were created.
+- Future variable-product candidates remained simple products at the end of Scope 6; no product attributes or variations existed yet. (Update: 5 of these candidates became variable products in Scope 7 - see [Product Attributes & Variations](product-attributes-variations.md).)
 
 ## Product Catalog Strategy for DeskNest
 
 The catalog stays within the curated, Germany-first desk-setup and workspace-accessories niche already defined for DeskNest: practical, well-designed physical accessories for home-office and hybrid workspaces, priced in the accessible mid-range with a few higher-value ergonomic items, and organized so category browsing feels focused rather than like an unrestricted general marketplace.
 
-The implemented catalog contains **24 simple products**, within the 20-28 range required for this scope and consistent with Scope 3's overall 24-32-product sizing guidance. All 24 are WooCommerce **simple products**. A small subset remains flagged as a likely future **variable product** candidate (color, finish, or size options); none of those attributes or variations exists in the current catalog.
+The implemented catalog contains **24 products** in total, within the 20-28 range required for this scope and consistent with Scope 3's overall 24-32-product sizing guidance. At the end of Scope 6, all 24 were WooCommerce **simple products**. As of Scope 7, 5 of those (the products flagged below as variable-product candidates) are now WooCommerce **variable products** with global attributes and variations; the other 19 remain simple products. See [Product Attributes & Variations](product-attributes-variations.md) for full detail.
 
 ## Category Structure
 
@@ -77,8 +79,8 @@ The tables below preserve the approved planning record. The live WooCommerce pro
 
 | # | Product name | SKU | Price (EUR) | Variable candidate? | Description direction |
 | ---: | --- | --- | ---: | --- | --- |
-| 1 | Adjustable Aluminum Laptop Stand | `DN-ERG-001` | 39.90 | Yes - color/finish | Material (aluminum), height/angle adjustability, laptop size compatibility, ventilation benefit |
-| 2 | Wooden Monitor Riser | `DN-ERG-002` | 44.90 | Yes - width | Wood type/finish, load capacity, monitor size fit, under-riser storage space |
+| 1 | Adjustable Aluminum Laptop Stand | `DN-ERG-001` | 39.90 | Implemented (Scope 7) - Finish: Black, Silver | Material (aluminum), height/angle adjustability, laptop size compatibility, ventilation benefit |
+| 2 | Wooden Monitor Riser | `DN-ERG-002` | 44.90-49.90 | Implemented (Scope 7) - Size: 60 cm, 80 cm | Wood type/finish, load capacity, monitor size fit, under-riser storage space |
 | 3 | Ergonomic Footrest, Adjustable Height & Tilt | `DN-ERG-003` | 34.90 | No | Adjustable mechanism, seated posture benefit, non-slip base, floor protection |
 | 4 | Memory-Foam Wrist Rest Set (Keyboard + Mouse) | `DN-ERG-004` | 19.90 | No | Foam density/material, set contents, wrist-support use case, care instructions |
 | 5 | Under-Desk Footrest Rocker Board | `DN-ERG-005` | 29.90 | No | Rocking range, grip surface, seated-movement benefit, size/weight limits |
@@ -87,7 +89,7 @@ The tables below preserve the approved planning record. The live WooCommerce pro
 
 | # | Product name | SKU | Price (EUR) | Variable candidate? | Description direction |
 | ---: | --- | --- | ---: | --- | --- |
-| 6 | Modular Bamboo Desk Organizer | `DN-ORG-001` | 27.90 | Yes - module count/size | Bamboo material, modular components, configuration options, desk footprint |
+| 6 | Modular Bamboo Desk Organizer | `DN-ORG-001` | 27.90-32.90 | Implemented (Scope 7) - Size: Compact, Standard | Bamboo material, modular components, configuration options, desk footprint |
 | 7 | Stackable Document Tray, 3-Tier | `DN-ORG-002` | 24.90 | No | Tier count, paper size fit, stacking/mounting, material and finish |
 | 8 | Felt Desktop Storage Caddy | `DN-ORG-003` | 18.90 | No | Felt material, compartment layout, intended contents, care notes |
 | 9 | Wooden Pen and Accessory Holder | `DN-ORG-004` | 14.90 | No | Wood finish, compartment count, footprint, desk-pairing suggestions |
@@ -96,7 +98,7 @@ The tables below preserve the approved planning record. The live WooCommerce pro
 
 | # | Product name | SKU | Price (EUR) | Variable candidate? | Description direction |
 | ---: | --- | --- | ---: | --- | --- |
-| 10 | Dimmable USB-C Monitor Light Bar | `DN-LIT-001` | 49.90 | Yes - finish | Mounting method, brightness/dimming range, color temperature, monitor compatibility |
+| 10 | Dimmable USB-C Monitor Light Bar | `DN-LIT-001` | 49.90 | Implemented (Scope 7) - Finish: Black, Silver | Mounting method, brightness/dimming range, color temperature, monitor compatibility |
 | 11 | Compact LED Desk Lamp, Adjustable Color Temperature | `DN-LIT-002` | 36.90 | No | Color-temperature range, arm adjustability, power source, footprint |
 | 12 | Clip-On Task Light for Shelves and Monitors | `DN-LIT-003` | 24.90 | No | Clip mechanism/range, brightness levels, cable/power detail, mounting surfaces |
 | 13 | Ambient LED Desk Strip with Touch Control | `DN-LIT-004` | 21.90 | No | Strip length, touch-control behavior, mounting method, ambient (non-task) use framing |
@@ -114,7 +116,7 @@ The tables below preserve the approved planning record. The live WooCommerce pro
 
 | # | Product name | SKU | Price (EUR) | Variable candidate? | Description direction |
 | ---: | --- | --- | ---: | --- | --- |
-| 18 | Vegan-Leather Desk Mat, Large | `DN-PRD-001` | 32.90 | Yes - size/color | Material, dimensions, water-resistance, surface feel for mouse/typing use |
+| 18 | Vegan-Leather Desk Mat, Large | `DN-PRD-001` | 32.90 | Implemented (Scope 7) - Color: Black, Grey, Green | Material, dimensions, water-resistance, surface feel for mouse/typing use |
 | 19 | Vertical Laptop and Tablet Stand, Adjustable Width | `DN-PRD-002` | 29.90 | No | Width-adjustment range, device compatibility, base stability, footprint |
 | 20 | Wooden Headphone Stand | `DN-PRD-003` | 19.90 | No | Wood finish, headphone-size compatibility, base stability, footprint |
 | 21 | Analog Desk Timer for Focused Work Sessions | `DN-PRD-004` | 17.90 | No | Timer mechanism, duration range, intended focus-session use, desk footprint |
@@ -129,19 +131,19 @@ The tables below preserve the approved planning record. The live WooCommerce pro
 
 Each bundle in the implemented catalog is stored as a single simple product with fixed contents; it is not a WooCommerce grouped/composite product and has no variation logic. Whether bundles should later become a different WooCommerce product type requires a separately approved technical decision.
 
-## Products That May Later Become Variable
+## Products With Implemented Attributes and Variations (Scope 7)
 
-The following products are flagged only as **future variable-product candidates**. No attributes or variations are created or defined by this document; each remains a simple product for Scope 6.
+At the end of Scope 6, the following products were flagged only as **future variable-product candidates**, with no attributes or variations created. As of Scope 7, all 5 have been implemented as WooCommerce variable products with global attributes and variations. Full attribute, term, and variation detail is documented in [Product Attributes & Variations](product-attributes-variations.md); this table is kept here for catalog continuity.
 
-| SKU | Product | Likely future variation axis |
-| --- | --- | --- |
-| `DN-ERG-001` | Adjustable Aluminum Laptop Stand | Color / finish |
-| `DN-ERG-002` | Wooden Monitor Riser | Width |
-| `DN-ORG-001` | Modular Bamboo Desk Organizer | Module count / size |
-| `DN-LIT-001` | Dimmable USB-C Monitor Light Bar | Finish |
-| `DN-PRD-001` | Vegan-Leather Desk Mat, Large | Size / color |
+| SKU | Product | Implemented attribute | Variation count |
+| --- | --- | --- | ---: |
+| `DN-ERG-001` | Adjustable Aluminum Laptop Stand | Finish (Black, Silver) | 2 |
+| `DN-ERG-002` | Wooden Monitor Riser | Size (60 cm, 80 cm) | 2 |
+| `DN-ORG-001` | Modular Bamboo Desk Organizer | Size (Compact, Standard) | 2 |
+| `DN-LIT-001` | Dimmable USB-C Monitor Light Bar | Finish (Black, Silver) | 2 |
+| `DN-PRD-001` | Vegan-Leather Desk Mat, Large | Color (Black, Grey, Green) | 3 |
 
-This mirrors the variable-product candidates already anticipated in Scope 3's attribute and taxonomy planning (desk mats, stands, organizers, and lighting).
+This matches the variable-product candidates already anticipated in Scope 3's attribute and taxonomy planning (desk mats, stands, organizers, and lighting).
 
 ## Product Image Placeholder Strategy
 
@@ -164,7 +166,7 @@ This convention must remain unique across all future simple products, variations
 
 ## Validation Summary
 
-The implemented WooCommerce catalog was validated with the following final state:
+The implemented WooCommerce catalog was validated with the following final state **at the end of Scope 6**. Product variations, global attributes, and product-level attribute assignments have since changed - see the Scope 7 update note above and [Product Attributes & Variations](product-attributes-variations.md) for the current live counts (5 variable products, 11 variations, 3 global attributes).
 
 | Item | Final state |
 | --- | ---: |
