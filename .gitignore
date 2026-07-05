@@ -1,0 +1,73 @@
+# LocalWP runtime and machine-specific configuration
+/conf/
+/logs/
+
+# Sensitive WordPress and environment configuration
+/app/public/wp-config.php
+/app/public/wp-config-*.php
+.env
+.env.*
+.envrc
+!.env.example
+
+# WordPress core (not tracked at this initialization stage)
+/app/public/wp-admin/
+/app/public/wp-includes/
+/app/public/*.php
+/app/public/license.txt
+/app/public/readme.html
+/app/public/.htaccess
+/app/public/web.config
+/app/public/wp-content/index.php
+
+# Generated and user-managed WordPress content
+/app/public/wp-content/uploads/
+/app/public/wp-content/cache/
+/app/public/wp-content/upgrade/
+/app/public/wp-content/upgrade-temp-backup/
+/app/public/wp-content/debug.log
+/app/public/wp-content/languages/
+/app/public/wp-content/backups/
+/app/public/wp-content/backup-*/
+/app/public/wp-content/ai1wm-backups/
+/app/public/wp-content/updraft/
+
+# Database dumps, backups, and export archives
+*.sql
+*.sql.gz
+*.wpress
+/app/public/wp-content/**/*.zip
+/app/public/wp-content/**/*.tar
+/app/public/wp-content/**/*.tar.gz
+/app/public/wp-content/**/*.tgz
+
+# Installed and bundled themes/plugins are excluded for now.
+/app/public/wp-content/themes/*
+/app/public/wp-content/plugins/*
+/app/public/wp-content/mu-plugins/*
+# When custom development begins, explicitly allowlist only its folder, e.g.:
+# !/app/public/wp-content/themes/my-custom-theme/
+# !/app/public/wp-content/plugins/my-custom-plugin/
+
+# Dependency and generated build output
+**/node_modules/
+**/vendor/
+**/dist/
+**/build/
+**/.cache/
+**/coverage/
+**/.tmp/
+**/tmp/
+
+# OS metadata
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+
+# Editor and IDE settings
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
