@@ -9,14 +9,17 @@ A portfolio-ready WooCommerce store project being built step by step with WordPr
 - Scope 3: Store Requirements & Architecture — completed
 - Scope 4: Theme & Design System — completed
 - Scope 5: WooCommerce Foundation — completed
+- Scope 6: Product Catalog — completed
 
 The project blueprint is documented in [Store Requirements & Architecture](docs/store-requirements-architecture.md). The locked concept is **DeskNest** — a Germany-first desk-setup and workspace accessories WooCommerce store concept.
 
 The DeskNest theme and design-system blueprint is documented in [Theme & Design System](docs/theme-design-system.md). The selected direction is a custom DeskNest block-theme architecture using `theme.json`, native templates, reusable patterns, centralized design tokens, and minimal JavaScript.
 
-The WooCommerce foundation baseline — installation, Germany/EUR settings, default pages, and validation — is documented in [WooCommerce Foundation](docs/woocommerce-foundation.md). This is a foundation baseline only: no products, taxes, payments, shipping, or custom storefront UI have been configured yet.
+The WooCommerce foundation baseline — installation, Germany/EUR settings, default pages, and validation — is documented in [WooCommerce Foundation](docs/woocommerce-foundation.md). Taxes, payments, shipping, and custom storefront UI remain unconfigured.
 
-Scopes 3 and 4 cover documentation and planning only. No custom theme folder has been created or activated. Scope 5 installed and configured WooCommerce's foundation settings only; no products, taxes, payments, shipping, or storefront implementation has started yet.
+The implemented DeskNest catalog is documented in [Product Catalog](docs/product-catalog.md). It contains 6 DeskNest product categories and 24 published simple products. Product variations, product attributes, product images, and inventory workflows have not started.
+
+Scopes 3 and 4 cover documentation and planning only. No custom theme folder has been created or activated. Scope 5 established the WooCommerce foundation, while Scope 6 implemented only the category and simple-product catalog; later commerce and storefront scopes remain unstarted.
 
 ## Verified Local Environment
 
@@ -41,7 +44,7 @@ The Git repository is initialized on `main`, the baseline files are committed, t
 
 ## Scope Boundaries
 
-This repository currently documents the initialized LocalWP WordPress project, the theme and design-system blueprint, and the WooCommerce foundation baseline (Germany/EUR settings and default pages only). Products, cart, checkout, customer accounts, payments, shipping, and the custom storefront theme will be handled in later scopes.
+This repository currently documents the initialized LocalWP WordPress project, the theme and design-system blueprint, the WooCommerce foundation baseline, and the implemented simple-product catalog. Product attributes and variations, inventory workflows, cart, checkout, customer accounts, payments, shipping, and the custom storefront theme will be handled in later scopes.
 
 ## Local Setup
 
@@ -51,6 +54,7 @@ This repository currently documents the initialized LocalWP WordPress project, t
 
 ## Current Limitations
 
-- No WooCommerce store functionality has been implemented yet.
-- No custom theme has been selected or built yet.
+- The catalog currently contains simple products only; no product attributes, variations, or images have been added.
+- Inventory workflows, taxes, payments, shipping, cart, checkout, and account customization have not started.
+- The custom DeskNest theme has been planned but not created or activated.
 - No production deployment exists yet.
