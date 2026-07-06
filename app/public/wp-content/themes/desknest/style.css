@@ -107,3 +107,136 @@ body.woocommerce-cart .wc-block-cart__empty-cart__title {
 		padding: var(--wp--preset--spacing--40);
 	}
 }
+
+/*
+ * Checkout page integration.
+ * Scoped to body.woocommerce-checkout so Shop/product/Cart/other pages are unaffected.
+ * Class names below are WooCommerce's own stable Checkout block classes.
+ */
+
+body.woocommerce-checkout .wp-block-woocommerce-checkout {
+	margin-top: var(--wp--preset--spacing--60);
+	margin-bottom: var(--wp--preset--spacing--70);
+}
+
+/* Step cards: Contact, Billing/Shipping address, Shipping method, Payment */
+body.woocommerce-checkout .wc-block-components-checkout-step {
+	background-color: var(--wp--preset--color--subtle-surface);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: 8px;
+	padding: var(--wp--preset--spacing--50);
+	box-sizing: border-box;
+	margin-bottom: var(--wp--preset--spacing--50);
+}
+
+body.woocommerce-checkout .wc-block-components-checkout-step__heading {
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+
+body.woocommerce-checkout .wc-block-components-checkout-step__content {
+	padding-top: var(--wp--preset--spacing--20);
+}
+
+/* Order note: spacing only, no logic change */
+body.woocommerce-checkout .wp-block-woocommerce-checkout-order-note-block {
+	margin-top: var(--wp--preset--spacing--40);
+}
+
+/* Order summary sidebar: reuse the same card visual language as the Cart totals sidebar */
+body.woocommerce-checkout .wc-block-checkout__sidebar .wc-block-components-totals-wrapper {
+	background-color: var(--wp--preset--color--subtle-surface);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: 8px;
+	padding: var(--wp--preset--spacing--50);
+	box-sizing: border-box;
+	max-width: 100%;
+}
+
+body.woocommerce-checkout .wc-block-components-checkout-order-summary__title {
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+
+/* Coupon accordion and other totals panels, consistent with Cart */
+body.woocommerce-checkout .wc-block-components-panel,
+body.woocommerce-checkout .wc-block-components-totals-coupon {
+	border-top: 1px solid var(--wp--preset--color--border);
+	padding-top: var(--wp--preset--spacing--30);
+	margin-top: var(--wp--preset--spacing--30);
+}
+
+/* Notices/errors: spacing only - WooCommerce's own message text, color, and
+   visibility are left untouched. Includes the no-payment-methods notice so it
+   reads clearly rather than being tight against surrounding content. */
+body.woocommerce-checkout .wc-block-components-notice-banner {
+	margin-bottom: var(--wp--preset--spacing--40);
+}
+
+body.woocommerce-checkout .wc-block-checkout__no-payment-methods-notice {
+	margin-top: var(--wp--preset--spacing--30);
+}
+
+/* Form inputs: conservative spacing only - no border/color overrides, so
+   WooCommerce's native/validation styling is preserved. */
+body.woocommerce-checkout .wc-block-components-text-input {
+	margin-bottom: var(--wp--preset--spacing--30);
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+body.woocommerce-checkout .wc-block-components-address-form {
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+/* Terms and checkout actions: spacing only - button color/radius already
+   inherited from the theme's global button element style defined in theme.json */
+body.woocommerce-checkout .wc-block-checkout__terms {
+	margin-top: var(--wp--preset--spacing--40);
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+
+body.woocommerce-checkout .wc-block-checkout__actions {
+	margin-top: var(--wp--preset--spacing--50);
+}
+
+body.woocommerce-checkout .wc-block-components-checkout-place-order-button {
+	margin-top: var(--wp--preset--spacing--20);
+}
+
+/* Responsive safety: reduce card padding and prevent overflow on narrow screens */
+@media (max-width: 600px) {
+	body.woocommerce-checkout .wc-block-components-checkout-step {
+		padding: var(--wp--preset--spacing--40);
+	}
+
+	/* Billing/shipping address fields: WooCommerce's own .wc-block-components-text-input
+	   rule sets flex: 1 0 calc(50% - 12px) - an explicit flex-basis, which takes
+	   priority over width in a flex layout. Setting width alone (as previously
+	   tried) has no effect while that flex-basis stands, so short fields (name,
+	   city, state, postcode, phone) keep sitting side by side even on narrow
+	   screens. Overriding the flex shorthand itself (our two-class selector is
+	   more specific than WooCommerce's single-class rule) is what actually
+	   forces each field onto its own full-width row. */
+	body.woocommerce-checkout .wc-block-components-address-form__first_name,
+	body.woocommerce-checkout .wc-block-components-address-form__last_name,
+	body.woocommerce-checkout .wc-block-components-address-form__city,
+	body.woocommerce-checkout .wc-block-components-address-form__state,
+	body.woocommerce-checkout .wc-block-components-address-form__postcode,
+	body.woocommerce-checkout .wc-block-components-address-form__phone {
+		flex: 1 0 100%;
+		width: 100%;
+		max-width: 100%;
+		min-width: 0;
+		box-sizing: border-box;
+	}
+}
+
+@media (max-width: 480px) {
+	body.woocommerce-checkout .wc-block-components-checkout-step {
+		padding: var(--wp--preset--spacing--30);
+	}
+
+	body.woocommerce-checkout .wc-block-checkout__sidebar .wc-block-components-totals-wrapper {
+		padding: var(--wp--preset--spacing--40);
+	}
+}
