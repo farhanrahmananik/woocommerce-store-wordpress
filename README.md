@@ -13,6 +13,7 @@ A portfolio-ready WooCommerce store project being built step by step with WordPr
 - Scope 7: Product Attributes & Variations — completed
 - Scope 8: Inventory & Stock Management — completed
 - Scope 9: Storefront Experience — completed
+- Scope 10: Cart — completed
 
 The project blueprint is documented in [Store Requirements & Architecture](docs/store-requirements-architecture.md). The locked concept is **DeskNest** — a Germany-first desk-setup and workspace accessories WooCommerce store concept.
 
@@ -26,9 +27,11 @@ Global product attributes and product variations are documented in [Product Attr
 
 Inventory and stock management are documented in [Inventory & Stock Management](docs/inventory-stock-management.md). All 19 simple products and 11 variations have quantity tracking enabled with realistic stock levels, the 5 variable parent products remain parent-level untracked by WooCommerce design, backorders are disabled everywhere, and two items are intentionally out of stock for testing.
 
-The storefront experience foundation is documented in [Storefront Experience](docs/storefront-experience.md). The custom `desknest` block theme is now active, a static DeskNest homepage (linking all 6 real product categories) has replaced the default blog feed, and WooCommerce browsing (Shop, category archives, simple and variable product pages) is verified working. Cart, checkout, customer accounts, payments, shipping, reviews, and final UI polish remain unimplemented.
+The storefront experience foundation is documented in [Storefront Experience](docs/storefront-experience.md). The custom `desknest` block theme is now active, a static DeskNest homepage (linking all 6 real product categories) has replaced the default blog feed, and WooCommerce browsing (Shop, category archives, simple and variable product pages) is verified working.
 
-Scopes 3 and 4 cover documentation and planning only. Scope 5 established the WooCommerce foundation, Scope 6 implemented the category and simple-product catalog, Scope 7 implemented global attributes and variations for 5 of those products, Scope 8 applied an inventory/stock-management policy across the catalog, and Scope 9 activated the custom `desknest` theme and a static storefront homepage on the local development environment; later commerce scopes (cart, checkout, accounts, payments, shipping) remain unstarted.
+The cart experience is documented in [Cart](docs/cart.md). WooCommerce's modern Cart block workflow (add to cart, quantity updates, item removal, empty/filled states) is validated for both simple and variable products, and header/footer navigation now includes a Cart link with cart-specific styling. Checkout, customer accounts, payments, shipping, coupons/promotions, and reviews remain unimplemented.
+
+Scopes 3 and 4 cover documentation and planning only. Scope 5 established the WooCommerce foundation, Scope 6 implemented the category and simple-product catalog, Scope 7 implemented global attributes and variations for 5 of those products, Scope 8 applied an inventory/stock-management policy across the catalog, Scope 9 activated the custom `desknest` theme and a static storefront homepage, and Scope 10 validated and styled the WooCommerce cart workflow on the local development environment; later commerce scopes (checkout, accounts, payments, shipping) remain unstarted.
 
 ## Verified Local Environment
 
@@ -53,7 +56,7 @@ The Git repository is initialized on `main`, the baseline files are committed, t
 
 ## Scope Boundaries
 
-This repository currently documents the initialized LocalWP WordPress project, the theme and design-system blueprint, the WooCommerce foundation baseline, the implemented product catalog, the implemented global attributes and variations for 5 products, the applied inventory/stock-management policy, and the activated `desknest` storefront theme with a static homepage. Cart, checkout, customer accounts, payments, and shipping will be handled in later scopes.
+This repository currently documents the initialized LocalWP WordPress project, the theme and design-system blueprint, the WooCommerce foundation baseline, the implemented product catalog, the implemented global attributes and variations for 5 products, the applied inventory/stock-management policy, the activated `desknest` storefront theme with a static homepage, and the validated/styled WooCommerce cart workflow. Checkout, customer accounts, payments, and shipping will be handled in later scopes.
 
 ## Local Setup
 
@@ -64,7 +67,7 @@ This repository currently documents the initialized LocalWP WordPress project, t
 ## Current Limitations
 
 - 5 of the 24 products are variable products with global attributes and variations; the remaining 19 are simple products. No product images have been added.
-- Inventory quantities and stock status are applied at the database level; the active `desknest` storefront now renders Shop, category, and product pages, but cart/checkout behavior with this inventory has not been tested.
-- Taxes, payments, shipping, cart, checkout, and account customization have not started.
+- Inventory quantities and stock status are applied at the database level; the active `desknest` storefront now renders Shop, category, and product pages, and the WooCommerce cart workflow with this inventory has been validated for simple and variable products.
+- Taxes, payments, shipping, checkout, and account customization have not started.
 - The custom DeskNest theme is now active with a basic homepage and visual foundation, but no final visual polish, product images, or portfolio-presentation work has been done.
 - No production deployment exists yet.
