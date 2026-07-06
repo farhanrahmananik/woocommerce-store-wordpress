@@ -240,3 +240,232 @@ body.woocommerce-checkout .wc-block-components-checkout-place-order-button {
 		padding: var(--wp--preset--spacing--40);
 	}
 }
+
+/*
+ * Customer Accounts (My Account) page integration.
+ * Scoped to body.woocommerce-account so Shop/Cart/Checkout/other pages are unaffected.
+ * WooCommerce's classic My Account templates are used here (not a block), so class
+ * names below come from WooCommerce's own PHP templates and classic frontend CSS
+ * (woocommerce.css / woocommerce-layout.css), verified directly rather than guessed.
+ */
+
+body.woocommerce-account .woocommerce {
+	margin-top: var(--wp--preset--spacing--60);
+	margin-bottom: var(--wp--preset--spacing--70);
+}
+
+/* Notices (validation errors, success messages) - spacing only, WooCommerce's
+   own message text/color/visibility are left untouched. */
+body.woocommerce-account .woocommerce-notices-wrapper:not(:empty) {
+	margin-bottom: var(--wp--preset--spacing--40);
+}
+
+body.woocommerce-account .wc-block-components-notice-banner {
+	margin-bottom: var(--wp--preset--spacing--40);
+}
+
+/* Login/Register columns, and the Addresses (billing/shipping) columns share
+   the same .col2-set/.col-1/.col-2 classes - one card treatment covers both. */
+body.woocommerce-account .col2-set .col-1,
+body.woocommerce-account .col2-set .col-2 {
+	background-color: var(--wp--preset--color--subtle-surface);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: 8px;
+	padding: var(--wp--preset--spacing--50);
+	box-sizing: border-box;
+}
+
+body.woocommerce-account .woocommerce-Address-title {
+	margin-bottom: var(--wp--preset--spacing--20);
+}
+
+/* Login/Register/Account-details form fields: spacing only - no border/color
+   overrides, so WooCommerce's native/validation input styling is preserved. */
+body.woocommerce-account .woocommerce-form-row {
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+
+body.woocommerce-account .woocommerce-Input {
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+/* Visible focus state for account form fields, using the theme's own accent
+   token - improves keyboard/accessibility visibility without removing the
+   browser's native focus behavior. */
+body.woocommerce-account .woocommerce-Input:focus,
+body.woocommerce-account .woocommerce-form__input:focus {
+	outline: 2px solid var(--wp--preset--color--accent);
+	outline-offset: 2px;
+}
+
+body.woocommerce-account .woocommerce-form-login__submit,
+body.woocommerce-account .woocommerce-form-register__submit {
+	margin-top: var(--wp--preset--spacing--20);
+}
+
+body.woocommerce-account .woocommerce-LostPassword {
+	margin-top: var(--wp--preset--spacing--20);
+}
+
+body.woocommerce-account .woocommerce-privacy-policy-text {
+	margin-top: var(--wp--preset--spacing--20);
+	margin-bottom: var(--wp--preset--spacing--20);
+}
+
+/* Account navigation sidebar: card treatment consistent with Cart/Checkout,
+   plus clear active-tab styling and adequate clickable spacing per link. */
+body.woocommerce-account .woocommerce-MyAccount-navigation {
+	background-color: var(--wp--preset--color--subtle-surface);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: 8px;
+	padding: var(--wp--preset--spacing--40);
+	box-sizing: border-box;
+}
+
+body.woocommerce-account .woocommerce-MyAccount-navigation ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+body.woocommerce-account .woocommerce-MyAccount-navigation-link {
+	margin-bottom: var(--wp--preset--spacing--10);
+}
+
+body.woocommerce-account .woocommerce-MyAccount-navigation-link a {
+	display: block;
+	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
+	border-radius: 6px;
+}
+
+body.woocommerce-account .woocommerce-MyAccount-navigation-link.is-active a {
+	background-color: var(--wp--preset--color--surface);
+	border: 1px solid var(--wp--preset--color--border);
+	font-weight: 600;
+}
+
+/* Empty-state action buttons (Orders/Downloads "Browse products") and the
+   Account-details "Save changes" button - spacing only, button color/radius
+   already inherited from the theme's global button element style. */
+body.woocommerce-account .woocommerce-MyAccount-content .button {
+	margin-top: var(--wp--preset--spacing--10);
+}
+
+/* Password-change fieldset (Account details page): WooCommerce provides no
+   styling for this element at all, so it renders with the bare browser
+   default box model (inconsistent padding/border), unlike every other card
+   in this section. Giving it an explicit border-box and matching card
+   language keeps it visually consistent and prevents its own padding/border
+   from adding to - rather than being contained within - its declared width. */
+body.woocommerce-account fieldset {
+	max-width: 100%;
+	box-sizing: border-box;
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: 8px;
+	padding: var(--wp--preset--spacing--40);
+	margin: var(--wp--preset--spacing--40) 0 0;
+}
+
+body.woocommerce-account fieldset legend {
+	padding: 0 var(--wp--preset--spacing--10);
+	font-weight: 600;
+}
+
+/* Account details form: every visible input (name, display name, email, and
+   all three password fields) already resolves to width:100% of its own row
+   via WooCommerce's own classic CSS, but the three password fields sit inside
+   the fieldset's own padding while the others don't - on narrow screens that
+   extra inset made the password fields visibly narrower than the fields above
+   them. Reinforcing width/box-sizing here (scoped to this one form) plus
+   removing the fieldset's default content-based min-width keeps every input's
+   box model consistent and predictable. */
+body.woocommerce-account .woocommerce-EditAccountForm .woocommerce-Input {
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+body.woocommerce-account .woocommerce-EditAccountForm fieldset {
+	min-width: 0;
+}
+
+/* Responsive safety: stack the nav/content and two-column layouts, and the
+   classic form-row-first/last name-pair fields, on narrow screens. WooCommerce's
+   own classic CSS uses float+width (30%/68% for nav/content, 48% for col2-set,
+   47% for form-row-first/last) with no built-in mobile breakpoint, the same
+   underlying pattern already found and fixed for Checkout's flex-basis fields. */
+@media (max-width: 600px) {
+	body.woocommerce-account .woocommerce-MyAccount-navigation,
+	body.woocommerce-account .woocommerce-MyAccount-content {
+		float: none;
+		width: 100%;
+	}
+
+	body.woocommerce-account .woocommerce-MyAccount-navigation {
+		margin-bottom: var(--wp--preset--spacing--50);
+	}
+
+	body.woocommerce-account .col2-set .col-1,
+	body.woocommerce-account .col2-set .col-2 {
+		float: none;
+		width: 100%;
+		margin-bottom: var(--wp--preset--spacing--40);
+	}
+
+	body.woocommerce-account .woocommerce .form-row-first,
+	body.woocommerce-account .woocommerce .form-row-last {
+		float: none;
+		width: 100%;
+	}
+
+	/* Account details specifically: the rule above already stacks
+	   form-row-first/last to 100% width (needed on the per-address edit form
+	   too, so it stays as-is), but every row in this form - first/last name,
+	   display name, email, and the three password rows - still carried
+	   WooCommerce's own content-box .form-row padding (3px). Content-box
+	   padding is added on top of a 100%-width box rather than being absorbed
+	   within it, so any row could render a few pixels wider/narrower than its
+	   siblings depending on box-sizing inheritance. Forcing one identical
+	   border-box model on every row in this form removes that discrepancy. */
+	body.woocommerce-account .woocommerce-EditAccountForm .woocommerce-form-row {
+		width: 100%;
+		max-width: 100%;
+		float: none;
+		clear: both;
+		padding-left: 0;
+		padding-right: 0;
+		box-sizing: border-box;
+	}
+
+	/* Account details (and any other non-card content, e.g. Dashboard/Orders/
+	   Downloads) has no card background of its own (avoids double-carding on
+	   the Addresses page - see above), so on narrow screens it otherwise sits
+	   flush against the viewport edge: theme.json defines no root padding,
+	   and WooCommerce's own classic .form-row padding is only 3px. */
+	body.woocommerce-account .woocommerce-MyAccount-content {
+		padding-left: var(--wp--preset--spacing--20);
+		padding-right: var(--wp--preset--spacing--20);
+		box-sizing: border-box;
+	}
+
+	/* Narrow the fieldset's own horizontal inset so its password fields align
+	   closer to the left/right edge used by the fields above it (which only
+	   have .woocommerce-MyAccount-content's padding, not an additional
+	   fieldset padding on top). */
+	body.woocommerce-account .woocommerce-EditAccountForm fieldset {
+		padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--20);
+	}
+}
+
+@media (max-width: 480px) {
+	body.woocommerce-account .col2-set .col-1,
+	body.woocommerce-account .col2-set .col-2,
+	body.woocommerce-account .woocommerce-MyAccount-navigation {
+		padding: var(--wp--preset--spacing--40);
+	}
+
+	body.woocommerce-account .woocommerce-EditAccountForm fieldset {
+		padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--10);
+	}
+}

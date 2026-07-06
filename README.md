@@ -15,6 +15,7 @@ A portfolio-ready WooCommerce store project being built step by step with WordPr
 - Scope 9: Storefront Experience — completed
 - Scope 10: Cart — completed
 - Scope 11: Checkout — completed
+- Scope 12: Customer Accounts — completed
 
 The project blueprint is documented in [Store Requirements & Architecture](docs/store-requirements-architecture.md). The locked concept is **DeskNest** — a Germany-first desk-setup and workspace accessories WooCommerce store concept.
 
@@ -34,7 +35,9 @@ The cart experience is documented in [Cart](docs/cart.md). WooCommerce's modern 
 
 The checkout experience is documented in [Checkout](docs/checkout.md). WooCommerce's modern Checkout block is validated for both the empty-cart redirect and filled-cart rendering, a pre-existing gap where the theme's own stylesheet was never enqueued on the frontend was found and fixed, and checkout now has theme-level CSS support (step/card styling, order summary styling, and a responsive mobile form refinement so billing fields stack cleanly on small screens) consistent with the rest of the storefront. No payment gateway is configured, so checkout cannot currently be completed, and no order has been placed; this is intentional and documented, not a defect.
 
-Scopes 3 and 4 cover documentation and planning only. Scope 5 established the WooCommerce foundation, Scope 6 implemented the category and simple-product catalog, Scope 7 implemented global attributes and variations for 5 of those products, Scope 8 applied an inventory/stock-management policy across the catalog, Scope 9 activated the custom `desknest` theme and a static storefront homepage, Scope 10 validated and styled the WooCommerce cart workflow, and Scope 11 validated and styled the WooCommerce checkout workflow (including the theme stylesheet enqueue fix) on the local development environment; later commerce scopes (accounts, payments, shipping) remain unstarted.
+The customer account experience is documented in [Customer Accounts](docs/customer-accounts.md). WooCommerce's classic My Account page (registration, login, dashboard, Orders, Downloads, Addresses, and Account details) is enabled and validated end-to-end using a local test customer, header navigation now includes an Account link, and the account pages have theme-level CSS support consistent with Cart/Checkout, including a mobile Account Details alignment fix found and resolved during visual review. No orders exist, so Orders/Downloads show their empty states; no screenshots are committed to the repository.
+
+Scopes 3 and 4 cover documentation and planning only. Scope 5 established the WooCommerce foundation, Scope 6 implemented the category and simple-product catalog, Scope 7 implemented global attributes and variations for 5 of those products, Scope 8 applied an inventory/stock-management policy across the catalog, Scope 9 activated the custom `desknest` theme and a static storefront homepage, Scope 10 validated and styled the WooCommerce cart workflow, Scope 11 validated and styled the WooCommerce checkout workflow (including the theme stylesheet enqueue fix), and Scope 12 enabled and styled the WooCommerce customer account experience, on the local development environment; later commerce scopes (payments, shipping, order management, coupons, reviews) remain unstarted, and no production deployment, GitHub Pages, or LinkedIn preview presentation exists yet.
 
 ## Verified Local Environment
 
@@ -59,7 +62,7 @@ The Git repository is initialized on `main`, the baseline files are committed, t
 
 ## Scope Boundaries
 
-This repository currently documents the initialized LocalWP WordPress project, the theme and design-system blueprint, the WooCommerce foundation baseline, the implemented product catalog, the implemented global attributes and variations for 5 products, the applied inventory/stock-management policy, the activated `desknest` storefront theme with a static homepage, and the validated/styled WooCommerce cart and checkout workflows. Payments remain unconfigured and are deferred to Scope 16 — Payment Configuration. Shipping remains unconfigured and is deferred to Scope 17 — Shipping Configuration. Customer accounts, coupons/promotions, and reviews will be handled in later scopes.
+This repository currently documents the initialized LocalWP WordPress project, the theme and design-system blueprint, the WooCommerce foundation baseline, the implemented product catalog, the implemented global attributes and variations for 5 products, the applied inventory/stock-management policy, the activated `desknest` storefront theme with a static homepage, and the validated/styled WooCommerce cart, checkout, and customer account workflows. Payments remain unconfigured and are deferred to Scope 16 — Payment Configuration. Shipping remains unconfigured and is deferred to Scope 17 — Shipping Configuration. Order management, coupons/promotions, reviews, reports, security hardening, performance optimization, final UI polish, and portfolio presentation (including any GitHub Pages or LinkedIn preview) will be handled in later scopes.
 
 ## Local Setup
 
@@ -71,7 +74,8 @@ This repository currently documents the initialized LocalWP WordPress project, t
 
 - 5 of the 24 products are variable products with global attributes and variations; the remaining 19 are simple products. No product images have been added.
 - Inventory quantities and stock status are applied at the database level; the active `desknest` storefront now renders Shop, category, and product pages, and the WooCommerce cart and checkout workflows with this inventory have been validated for simple and variable products.
-- Taxes, payments, shipping, and account customization have not started. Payments are deferred to Scope 16; shipping is deferred to Scope 17.
+- Taxes, payments, and shipping have not started. Payments are deferred to Scope 16; shipping is deferred to Scope 17.
 - Checkout is styled and validated, but cannot currently be completed end-to-end: no payment gateway is enabled, so no order can be placed. No Terms & Conditions page has been assigned yet.
+- Customer accounts are enabled and validated (registration, login, dashboard, Orders/Downloads/Addresses/Account details) using one local test customer, but no real orders exist yet, so Orders/Downloads show empty states; order management, payment methods on file, and account-related email delivery have not been verified.
 - The custom DeskNest theme is now active with a basic homepage and visual foundation, and the theme's own stylesheet is now correctly enqueued on the frontend (a pre-existing gap fixed during Scope 11), but no final visual polish, product images, or portfolio-presentation work has been done.
 - No production deployment exists yet.
