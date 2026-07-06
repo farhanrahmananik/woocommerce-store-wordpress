@@ -9,3 +9,101 @@ Requires PHP: 8.2
 Text Domain: desknest
 Tags: ecommerce, full-site-editing, block-theme, custom-theme
 */
+
+/*
+ * Header navigation and mobile branding polish.
+ * Scoped to the header template part only; does not affect WooCommerce/product selectors.
+ */
+
+/* Guarantee a clear, deliberate gap between nav items (Shop, Cart) instead of
+   relying on WordPress's low-specificity default flex gap. */
+header.wp-block-template-part .wp-block-navigation .wp-block-navigation__container {
+	gap: var(--wp--preset--spacing--40);
+}
+
+@media (max-width: 600px) {
+	/* Let the site title and tagline stack instead of being squeezed onto one
+	   nowrap line, which caused the title to wrap awkwardly on narrow screens. */
+	header.wp-block-template-part .is-nowrap {
+		flex-wrap: wrap;
+	}
+
+	/* Comfortable vertical spacing when the brand block and navigation stack
+	   on narrow screens. */
+	header.wp-block-template-part > .wp-block-group.is-content-justification-space-between {
+		row-gap: var(--wp--preset--spacing--30);
+	}
+
+	/* A little extra breathing room around each nav link on small screens. */
+	header.wp-block-template-part .wp-block-navigation-item__content {
+		padding-top: var(--wp--preset--spacing--10);
+		padding-bottom: var(--wp--preset--spacing--10);
+	}
+}
+
+/*
+ * Cart page integration.
+ * Scoped to body.woocommerce-cart so Shop/product/other pages are unaffected.
+ * Class names below are WooCommerce's own stable Cart block classes.
+ */
+
+body.woocommerce-cart .wp-block-woocommerce-cart {
+	margin-top: var(--wp--preset--spacing--60);
+	margin-bottom: var(--wp--preset--spacing--70);
+}
+
+body.woocommerce-cart .wc-block-cart-items {
+	margin-bottom: var(--wp--preset--spacing--50);
+}
+
+body.woocommerce-cart .wc-block-cart__totals-title {
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+
+/* Totals sidebar: visually separated card using the DeskNest brand surface/border tokens */
+body.woocommerce-cart .wc-block-cart__sidebar .wc-block-components-totals-wrapper {
+	background-color: var(--wp--preset--color--subtle-surface);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: 8px;
+	padding: var(--wp--preset--spacing--50);
+	box-sizing: border-box;
+	max-width: 100%;
+}
+
+/* Coupon accordion and other totals panels */
+body.woocommerce-cart .wc-block-components-panel,
+body.woocommerce-cart .wc-block-components-totals-coupon {
+	border-top: 1px solid var(--wp--preset--color--border);
+	padding-top: var(--wp--preset--spacing--30);
+	margin-top: var(--wp--preset--spacing--30);
+}
+
+/* Quantity control spacing */
+body.woocommerce-cart .wc-block-components-quantity-selector {
+	margin-top: var(--wp--preset--spacing--20);
+	margin-bottom: var(--wp--preset--spacing--20);
+}
+
+/* Proceed to Checkout: spacing only - button color/radius already inherited from
+   the theme's global button element style defined in theme.json */
+body.woocommerce-cart .wc-block-cart__submit-container {
+	margin-top: var(--wp--preset--spacing--50);
+}
+
+/* Empty cart state */
+body.woocommerce-cart .wp-block-woocommerce-empty-cart-block {
+	padding-top: var(--wp--preset--spacing--70);
+	padding-bottom: var(--wp--preset--spacing--70);
+	text-align: center;
+}
+
+body.woocommerce-cart .wc-block-cart__empty-cart__title {
+	margin-bottom: var(--wp--preset--spacing--40);
+}
+
+/* Responsive safety: stack sidebar/main comfortably on narrow screens */
+@media (max-width: 480px) {
+	body.woocommerce-cart .wc-block-cart__sidebar .wc-block-components-totals-wrapper {
+		padding: var(--wp--preset--spacing--40);
+	}
+}
