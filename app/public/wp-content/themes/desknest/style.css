@@ -469,3 +469,192 @@ body.woocommerce-account .woocommerce-EditAccountForm fieldset {
 		padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--10);
 	}
 }
+
+/*
+ * Product Reviews integration.
+ * Scoped to body.single-product so Shop/Cart/Checkout/Account pages are unaffected.
+ * The product summary rating (title area) is WooCommerce's modern product-rating
+ * block; the Reviews tab content (list + form) is WooCommerce's classic template
+ * output - both class sets below were verified directly against real rendered
+ * markup rather than guessed.
+ */
+
+/* Rating summary near the product title (modern block) */
+body.single-product .wc-block-components-product-rating {
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+
+body.single-product .star-rating,
+body.single-product .wc-block-components-product-rating__stars {
+	color: var(--wp--preset--color--accent);
+}
+
+/* Reviews tab container: one card wrapping the title, review list, and form */
+body.single-product #reviews.woocommerce-Reviews {
+	margin-top: var(--wp--preset--spacing--60);
+	background-color: var(--wp--preset--color--subtle-surface);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: 8px;
+	padding: var(--wp--preset--spacing--50);
+	box-sizing: border-box;
+}
+
+body.single-product .woocommerce-Reviews-title {
+	margin-top: 0;
+	margin-bottom: var(--wp--preset--spacing--40);
+}
+
+/* Empty state: kept visible and intentional-looking, not hidden */
+body.single-product .woocommerce-noreviews {
+	background-color: var(--wp--preset--color--surface);
+	border: 1px dashed var(--wp--preset--color--border);
+	border-radius: 8px;
+	padding: var(--wp--preset--spacing--40);
+	text-align: center;
+	color: var(--wp--preset--color--secondary-text);
+}
+
+/* Review list: each review as its own card */
+body.single-product .commentlist {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+body.single-product .commentlist .comment_container {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--wp--preset--spacing--30);
+	background-color: var(--wp--preset--color--surface);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: 8px;
+	padding: var(--wp--preset--spacing--40);
+	margin-bottom: var(--wp--preset--spacing--30);
+	box-sizing: border-box;
+}
+
+body.single-product .commentlist .comment_container img.avatar {
+	border-radius: 50%;
+	flex-shrink: 0;
+}
+
+body.single-product .comment-text {
+	flex: 1;
+	min-width: 0;
+}
+
+body.single-product .comment-text .meta {
+	margin-top: var(--wp--preset--spacing--10);
+	margin-bottom: var(--wp--preset--spacing--20);
+	color: var(--wp--preset--color--secondary-text);
+	font-size: var(--wp--preset--font-size--small);
+}
+
+body.single-product .woocommerce-review__author {
+	color: var(--wp--preset--color--primary-text);
+	font-weight: 600;
+}
+
+/* Verified-owner badge: a small, understated pill - not an exaggerated banner */
+body.single-product .woocommerce-review__verified {
+	display: inline-block;
+	color: var(--wp--preset--color--accent-dark);
+	background-color: var(--wp--preset--color--subtle-surface);
+	border-radius: 4px;
+	padding: 0 var(--wp--preset--spacing--10);
+	font-style: normal;
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 600;
+}
+
+body.single-product .comment-text .description p {
+	margin: 0;
+	line-height: 1.6;
+}
+
+/* Review submission form */
+body.single-product #respond.comment-respond {
+	margin-top: var(--wp--preset--spacing--50);
+	padding-top: var(--wp--preset--spacing--50);
+	border-top: 1px solid var(--wp--preset--color--border);
+}
+
+body.single-product .comment-reply-title {
+	display: block;
+	margin-bottom: var(--wp--preset--spacing--30);
+	font-weight: 600;
+}
+
+body.single-product .comment-form-rating,
+body.single-product .comment-form-comment,
+body.single-product .comment-form-author,
+body.single-product .comment-form-email {
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+
+body.single-product .comment-form-rating label,
+body.single-product .comment-form-comment label,
+body.single-product .comment-form-author label,
+body.single-product .comment-form-email label {
+	display: block;
+	margin-bottom: var(--wp--preset--spacing--10);
+	font-weight: 600;
+}
+
+/* Field styling: conservative border/radius only - no color overrides, so
+   WooCommerce's native/validation styling (required-field asterisks, etc.)
+   is preserved. */
+body.single-product .comment-form-rating select,
+body.single-product .comment-form-comment textarea,
+body.single-product .comment-form-author input,
+body.single-product .comment-form-email input {
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+	padding: var(--wp--preset--spacing--20);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: 6px;
+	font-family: inherit;
+	font-size: var(--wp--preset--font-size--body);
+}
+
+/* Visible focus state for review form fields and the submit button, using
+   the same accent-outline convention already established for Account forms. */
+body.single-product .comment-form-rating select:focus,
+body.single-product .comment-form-comment textarea:focus,
+body.single-product .comment-form-author input:focus,
+body.single-product .comment-form-email input:focus,
+body.single-product #submit:focus {
+	outline: 2px solid var(--wp--preset--color--accent);
+	outline-offset: 2px;
+}
+
+/* Submit button: spacing only - color/radius already inherited from the
+   theme's global button element style, since #submit carries wp-element-button. */
+body.single-product .form-submit {
+	margin-top: var(--wp--preset--spacing--20);
+	margin-bottom: 0;
+}
+
+/* Responsive safety: stack each review's avatar/text on narrow screens and
+   reduce card padding, consistent with every other WooCommerce section. */
+@media (max-width: 600px) {
+	body.single-product #reviews.woocommerce-Reviews {
+		padding: var(--wp--preset--spacing--40);
+	}
+
+	body.single-product .commentlist .comment_container {
+		flex-direction: column;
+		gap: var(--wp--preset--spacing--20);
+	}
+}
+
+@media (max-width: 480px) {
+	body.single-product #reviews.woocommerce-Reviews {
+		padding: var(--wp--preset--spacing--30);
+	}
+
+	body.single-product .commentlist .comment_container {
+		padding: var(--wp--preset--spacing--30);
+	}
+}
