@@ -48,6 +48,10 @@
 # Custom theme development has begun; explicitly allowlist only its folder.
 !/app/public/wp-content/themes/desknest/
 !/app/public/wp-content/themes/desknest/**
+# New custom theme scaffold (Scope 21 remediation); explicitly allowlisted
+# alongside desknest, which remains untouched as rollback safety.
+!/app/public/wp-content/themes/desknest-storefront/
+!/app/public/wp-content/themes/desknest-storefront/**
 # When further custom plugin development begins, explicitly allowlist only its folder, e.g.:
 # !/app/public/wp-content/plugins/my-custom-plugin/
 
@@ -70,6 +74,7 @@ Desktop.ini
 # Editor and IDE settings
 .idea/
 .vscode/
+/.claude/
 *.swp
 *.swo
 *~
