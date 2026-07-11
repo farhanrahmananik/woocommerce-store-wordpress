@@ -226,6 +226,8 @@
 ( function () {
 	'use strict';
 
+	var variationSelectId = 0;
+
 	function initVariationSelects() {
 		var forms = document.querySelectorAll( 'body.single-product form.variations_form' );
 
@@ -247,6 +249,11 @@
 		}
 		select.dataset.storefrontEnhanced = 'true';
 
+		var row = select.closest( 'tr' );
+		var label = row ? row.querySelector( 'th label, th' ) : null;
+		var labelText = label ? label.textContent.trim() : select.getAttribute( 'name' ) || 'Option';
+		var controlId = 'storefront-variation-select-' + ( variationSelectId++ );
+
 		var wrapper = document.createElement( 'div' );
 		wrapper.className = 'storefront-select storefront-variation-select';
 
@@ -255,14 +262,19 @@
 		toggle.className = 'storefront-select-toggle';
 		toggle.setAttribute( 'aria-haspopup', 'listbox' );
 		toggle.setAttribute( 'aria-expanded', 'false' );
+		toggle.setAttribute( 'aria-controls', controlId );
 
 		var toggleLabel = document.createElement( 'span' );
 		toggle.appendChild( toggleLabel );
 
 		var menu = document.createElement( 'ul' );
+		menu.id = controlId;
 		menu.className = 'storefront-select-menu';
 		menu.setAttribute( 'role', 'listbox' );
+		menu.setAttribute( 'aria-label', labelText );
 		menu.hidden = true;
+
+		var optionEls = [];
 
 		// Tracks the last value we rendered so the poll below reacts only to
 		// real value changes (from our dropdown, WooCommerce's default/restore,
@@ -272,6 +284,7 @@
 		function render() {
 			var selected = select.options[ select.selectedIndex ];
 			toggleLabel.textContent = selected ? selected.textContent : '';
+			toggle.setAttribute( 'aria-label', labelText + ': ' + ( selected ? selected.textContent : '' ) );
 			if ( ! menu.hidden ) {
 				buildOptions();
 			}
@@ -289,6 +302,26 @@
 			toggle.setAttribute( 'aria-expanded', 'false' );
 		}
 
+		function focusOption( index ) {
+			var item = optionEls[ index ];
+			if ( item ) {
+				item.focus();
+			}
+		}
+
+		function enabledOptionIndex( startIndex, direction ) {
+			var index = startIndex;
+
+			while ( index >= 0 && index < optionEls.length ) {
+				if ( optionEls[ index ] && optionEls[ index ].getAttribute( 'aria-disabled' ) !== 'true' ) {
+					return index;
+				}
+				index += direction;
+			}
+
+			return -1;
+		}
+
 		function choose( value ) {
 			select.value = value;
 			// Dispatch both input and change (bubbling) so WooCommerce's own
@@ -301,44 +334,112 @@
 			toggle.focus();
 		}
 
+		function dispatchNativeSelectChange() {
+			select.dispatchEvent( new Event( 'input', { bubbles: true } ) );
+			select.dispatchEvent( new Event( 'change', { bubbles: true } ) );
+			if ( window.jQuery ) {
+				window.jQuery( select ).trigger( 'change' );
+			}
+		}
+
+		function syncAfterReset() {
+			window.setTimeout( function () {
+				select.value = '';
+				dispatchNativeSelectChange();
+				if ( window.jQuery ) {
+					window.jQuery( form ).trigger( 'reset_data' );
+				}
+				var variationDetails = form.querySelector( '.single_variation, .woocommerce-variation' );
+				if ( variationDetails ) {
+					variationDetails.innerHTML = '';
+					variationDetails.style.display = 'none';
+				}
+				pollSync();
+				closeMenu();
+				toggle.focus();
+			}, 0 );
+		}
+
 		// Rebuilt on every open so WooCommerce's dynamic re-population of
 		// dependent attribute options (multi-attribute products) is reflected.
 		function buildOptions() {
 			menu.innerHTML = '';
-			Array.prototype.forEach.call( select.options, function ( option ) {
+			optionEls = [];
+			Array.prototype.forEach.call( select.options, function ( option, index ) {
 				var item = document.createElement( 'li' );
 				item.className = 'storefront-select-option';
 				item.setAttribute( 'role', 'option' );
 				item.textContent = option.textContent;
 				item.tabIndex = -1;
+				item.dataset.value = option.value;
+				item.dataset.index = String( index );
 
 				var isSelected = option.value === select.value;
+				var isDisabled = option.disabled || option.hidden;
 				item.setAttribute( 'aria-selected', isSelected ? 'true' : 'false' );
+				if ( isDisabled ) {
+					item.setAttribute( 'aria-disabled', 'true' );
+				}
 				if ( isSelected ) {
 					item.classList.add( 'is-active' );
 				}
 
 				item.addEventListener( 'click', function () {
+					if ( item.getAttribute( 'aria-disabled' ) === 'true' ) {
+						return;
+					}
 					choose( option.value );
 				} );
 				item.addEventListener( 'keydown', function ( event ) {
 					if ( 'Enter' === event.key || ' ' === event.key ) {
 						event.preventDefault();
+						if ( item.getAttribute( 'aria-disabled' ) === 'true' ) {
+							return;
+						}
 						choose( option.value );
 					} else if ( 'Escape' === event.key ) {
+						event.preventDefault();
 						closeMenu();
 						toggle.focus();
+					} else if ( 'ArrowDown' === event.key ) {
+						event.preventDefault();
+						focusOption( enabledOptionIndex( Number( item.dataset.index ) + 1, 1 ) );
+					} else if ( 'ArrowUp' === event.key ) {
+						event.preventDefault();
+						focusOption( enabledOptionIndex( Number( item.dataset.index ) - 1, -1 ) );
+					} else if ( 'Home' === event.key ) {
+						event.preventDefault();
+						focusOption( enabledOptionIndex( 0, 1 ) );
+					} else if ( 'End' === event.key ) {
+						event.preventDefault();
+						focusOption( enabledOptionIndex( optionEls.length - 1, -1 ) );
 					}
 				} );
 
 				menu.appendChild( item );
+				optionEls.push( item );
 			} );
 		}
 
-		function openMenu() {
+		function openMenu( direction ) {
 			buildOptions();
 			menu.hidden = false;
 			toggle.setAttribute( 'aria-expanded', 'true' );
+			var selectedIndex = -1;
+
+			optionEls.forEach( function ( item, index ) {
+				if ( item.dataset.value === select.value ) {
+					selectedIndex = index;
+				}
+			} );
+
+			if ( selectedIndex < 0 || optionEls[ selectedIndex ].getAttribute( 'aria-disabled' ) === 'true' ) {
+				selectedIndex = 'up' === direction
+					? enabledOptionIndex( optionEls.length - 1, -1 )
+					: enabledOptionIndex( 0, 1 );
+			}
+
+			focusOption( selectedIndex );
 		}
 
 		toggle.addEventListener( 'click', function () {
@@ -350,9 +451,9 @@
 		} );
 
 		toggle.addEventListener( 'keydown', function ( event ) {
-			if ( 'ArrowDown' === event.key || 'ArrowUp' === event.key ) {
+			if ( 'Enter' === event.key || ' ' === event.key || 'ArrowDown' === event.key || 'ArrowUp' === event.key ) {
 				event.preventDefault();
-				openMenu();
+				openMenu( 'ArrowUp' === event.key ? 'up' : 'down' );
 			} else if ( 'Escape' === event.key ) {
 				closeMenu();
 			}
@@ -375,6 +476,19 @@
 		wrapper.addEventListener( 'focusout', function ( event ) {
 			if ( ! wrapper.contains( event.relatedTarget ) ) {
 				closeMenu();
+			}
+		} );
+
+		form.addEventListener( 'keydown', function ( event ) {
+			if ( ' ' === event.key && event.target && event.target.classList && event.target.classList.contains( 'reset_variations' ) ) {
+				event.preventDefault();
+				event.target.click();
+				syncAfterReset();
+			}
+		} );
+		form.addEventListener( 'click', function ( event ) {
+			if ( event.target && event.target.classList && event.target.classList.contains( 'reset_variations' ) ) {
+				syncAfterReset();
 			}
 		} );
 

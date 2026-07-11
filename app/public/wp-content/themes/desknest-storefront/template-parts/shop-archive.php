@@ -40,8 +40,27 @@ if ( function_exists( 'wc_setup_loop' ) ) {
 $storefront_is_category = function_exists( 'is_product_category' ) && is_product_category();
 $storefront_term        = $storefront_is_category ? get_queried_object() : null;
 $storefront_term        = ( $storefront_term instanceof WP_Term ) ? $storefront_term : null;
+$storefront_post_type   = get_query_var( 'post_type' );
+$storefront_is_search   = is_search() && ( 'product' === $storefront_post_type || ( is_array( $storefront_post_type ) && in_array( 'product', $storefront_post_type, true ) ) );
+$storefront_search      = $storefront_is_search ? trim( (string) get_search_query( false ) ) : '';
 
-if ( $storefront_is_category && $storefront_term ) {
+if ( $storefront_is_search ) {
+	global $wp_query;
+
+	$storefront_eyebrow = __( 'Search', 'desknest-storefront' );
+	$storefront_total   = isset( $wp_query->found_posts ) ? (int) $wp_query->found_posts : 0;
+	$storefront_title   = $storefront_total > 0
+		? sprintf(
+			/* translators: %s: active product search query */
+			__( 'Search results for "%s"', 'desknest-storefront' ),
+			$storefront_search
+		)
+		: sprintf(
+			/* translators: %s: active product search query */
+			__( 'No products found for "%s"', 'desknest-storefront' ),
+			$storefront_search
+		);
+} elseif ( $storefront_is_category && $storefront_term ) {
 	$storefront_eyebrow = __( 'Category', 'desknest-storefront' );
 	$storefront_title   = $storefront_term->name;
 	$storefront_total   = (int) $storefront_term->count;
@@ -63,7 +82,17 @@ if ( $storefront_is_category && $storefront_term ) {
 		<p class="storefront-shop-eyebrow"><?php echo esc_html( $storefront_eyebrow ); ?></p>
 		<h1><?php echo esc_html( $storefront_title ); ?></h1>
 
-		<?php if ( $storefront_is_category ) : ?>
+		<?php if ( $storefront_is_search ) : ?>
+			<p class="storefront-shop-lead">
+				<?php
+				echo esc_html(
+					$storefront_total > 0
+						? __( 'Showing DeskNest products that match your search.', 'desknest-storefront' )
+						: __( 'Try a different product name, category, or desk setup need.', 'desknest-storefront' )
+				);
+				?>
+			</p>
+		<?php elseif ( $storefront_is_category ) : ?>
 			<?php if ( '' !== trim( (string) $storefront_term->description ) ) : ?>
 				<div class="storefront-shop-lead">
 					<?php echo wp_kses_post( wpautop( $storefront_term->description ) ); ?>
@@ -87,15 +116,21 @@ if ( $storefront_is_category && $storefront_term ) {
 			</p>
 		<?php endif; ?>
 
-		<?php if ( $storefront_total > 0 ) : ?>
+		<?php if ( $storefront_is_search || $storefront_total > 0 ) : ?>
 			<p class="storefront-shop-meta">
 				<?php
 				echo esc_html(
-					sprintf(
-						/* translators: %s: number of products, already formatted */
-						_n( '%s product available', '%s products available', $storefront_total, 'desknest-storefront' ),
-						number_format_i18n( $storefront_total )
-					)
+					$storefront_is_search
+						? sprintf(
+							/* translators: %s: number of matching products, already formatted */
+							_n( '%s product found', '%s products found', $storefront_total, 'desknest-storefront' ),
+							number_format_i18n( $storefront_total )
+						)
+						: sprintf(
+							/* translators: %s: number of products, already formatted */
+							_n( '%s product available', '%s products available', $storefront_total, 'desknest-storefront' ),
+							number_format_i18n( $storefront_total )
+						)
 				);
 				?>
 			</p>
@@ -142,7 +177,15 @@ if ( $storefront_is_category && $storefront_term ) {
 
 		<div class="storefront-shop-empty">
 			<h2><?php esc_html_e( 'No products found', 'desknest-storefront' ); ?></h2>
-			<p><?php esc_html_e( 'There is nothing to show here right now. Check back soon.', 'desknest-storefront' ); ?></p>
+			<p>
+				<?php
+				echo esc_html(
+					$storefront_is_search
+						? __( 'No DeskNest products matched that search. Try a broader term or browse the full shop.', 'desknest-storefront' )
+						: __( 'There is nothing to show here right now. Check back soon.', 'desknest-storefront' )
+				);
+				?>
+			</p>
 			<a class="storefront-button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Back to homepage', 'desknest-storefront' ); ?></a>
 		</div>
 

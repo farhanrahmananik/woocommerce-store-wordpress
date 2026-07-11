@@ -917,12 +917,19 @@ ul.products {
 
 .product-card-rating {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	gap: var(--space-2);
+	min-width: 0;
 	min-height: 1.45rem;
 	margin-block: auto var(--space-2);
 	color: var(--color-warning);
 	font-size: var(--font-small);
+}
+
+.product-card-rating-count {
+	min-width: 0;
+	overflow-wrap: anywhere;
 }
 
 .product-card-rating-empty {
@@ -992,6 +999,10 @@ ul.products {
 	grid-template-columns: clamp(5.25rem, 22vw, 7.5rem) minmax(0, 1fr);
 	grid-template-rows: auto auto auto 1fr auto;
 	column-gap: var(--space-4);
+}
+
+.product-card-compact > :not(.product-card-media) {
+	min-width: 0;
 }
 
 .product-card-compact .product-card-media {
