@@ -5,7 +5,11 @@
 - Scope 1: Environment Setup — completed
 - Scope 2: Project Initialization — completed
 - Scope 3: Store Requirements & Architecture — completed
-- Scope 4: Theme & Design System — in progress
+- Scope 4: Theme & Design System — completed
+
+## Historical Context
+
+This document records the original Scope 4 design-system and block-theme blueprint. The final active storefront theme later became `desknest-storefront` in Scope 21, while `desknest` remains preserved as a rollback theme. Current implementation details are documented in [UI Polish](ui-polish.md).
 
 ## Current Theme Audit Summary
 

@@ -27,6 +27,10 @@
 
 Scope 20 measured and reviewed the local WooCommerce performance baseline for the DeskNest store, then decided - based on the evidence gathered, not assumption - whether any code-level optimization was safe to make. **This scope is completed locally.** It is a measurement and decision-making scope: it establishes what the current frontend asset/performance picture actually looks like, and documents honestly why no code changes were made.
 
+## Historical Context
+
+These measurements were captured during Scope 20 while the earlier `desknest` theme was active. They are a historical pre-Scope-21 LocalWP baseline, not a benchmark of the final `desknest-storefront` theme and not production performance measurements.
+
 ## Environment
 
 | Item | Value |

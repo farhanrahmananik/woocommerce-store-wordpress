@@ -16,6 +16,10 @@
 
 This document records the Scope 9 storefront experience foundation for the DeskNest store: activating and building the custom `desknest` block theme, replacing the default blog-feed homepage with a static storefront landing page, and validating that WooCommerce browsing (Shop, category archives, simple and variable product pages) continues to work correctly. This is a **foundation-level** storefront implementation, not a finished, polished, or production-ready storefront.
 
+## Historical Context
+
+This document records the earlier Scope 9 `desknest` storefront foundation. Scope 21 later introduced `desknest-storefront` as the final active theme. Current storefront implementation details are documented in [UI Polish](ui-polish.md).
+
 ## Storefront Baseline Before Scope 9
 
 At the start of this scope:
