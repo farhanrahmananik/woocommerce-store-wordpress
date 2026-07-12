@@ -78,5 +78,5 @@ For a reviewer who wants the quickest accurate picture:
 - The repository does not include a portable database snapshot.
 - WordPress core, WooCommerce plugin files, uploads, LocalWP runtime files, and `wp-config.php` are intentionally not tracked.
 - GitHub Pages hosts only the static portfolio presentation; it is not a live WooCommerce store and does not run WordPress/WooCommerce.
-- LinkedIn/Open Graph preview optimization remains separate and deferred to Scope 26.
+- Scope 26 adds LinkedIn/Open Graph preview metadata and one static 1200x630 preview image for the GitHub Pages portfolio presentation only.
 - Some earlier documents describe historical states from their own scope, such as the earlier `desknest` block theme. Current final UI implementation details are in `ui-polish.md`.

@@ -15,6 +15,7 @@ The project demonstrates practical WordPress, WooCommerce, PHP theme development
 | Active final theme | Custom classic PHP theme: `desknest-storefront` |
 | Quality review | Scope 22 QA completed; 4 storefront defects fixed and retested |
 | Static portfolio page | Scope 25 complete; verified GitHub Pages static portfolio landing page is live |
+| Social preview | Scope 26 adds LinkedIn/Open Graph metadata and one static 1200x630 preview image for the GitHub Pages portfolio page |
 | Production deployment | WordPress/WooCommerce is not deployed; no public live WooCommerce store demo exists |
 | Portfolio media | Scope 24 includes 13 curated and validated storefront screenshots plus a portfolio presentation |
 
@@ -176,7 +177,7 @@ Performance work documents a LocalWP baseline and asset-loading review. It does 
 
 Scope 24 organizes 13 curated storefront screenshots under `docs/screenshots/desktop/` and `docs/screenshots/mobile/`. Scope 25 adds the verified [static GitHub Pages portfolio landing page](https://farhanrahmananik.github.io/woocommerce-store-wordpress/) built from `docs/index.html`, `docs/assets/`, and the curated screenshot set.
 
-The full [Portfolio Presentation](docs/portfolio-presentation.md) contains implementation highlights, workflow evidence, responsive views, testing evidence, and project boundaries. LinkedIn/Open Graph preview assets remain deferred to Scope 26.
+The full [Portfolio Presentation](docs/portfolio-presentation.md) contains implementation highlights, workflow evidence, responsive views, testing evidence, and project boundaries. Scope 26 adds LinkedIn/Open Graph preview metadata and a static 1200x630 preview image for this GitHub Pages portfolio presentation only.
 
 ## Known Limitations
 
