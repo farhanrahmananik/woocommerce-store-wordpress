@@ -11,6 +11,7 @@ For the final current storefront and QA state, prioritize `ui-polish.md` and `te
 ### Documentation Overview
 
 - [Project Documentation Index](README.md) - this navigation file for the repository documentation set.
+- [Portfolio Presentation](portfolio-presentation.md) - recruiter-facing DeskNest case study and complete screenshot gallery.
 
 ### Product and Business Architecture
 
@@ -61,9 +62,10 @@ For the final current storefront and QA state, prioritize `ui-polish.md` and `te
 For a reviewer who wants the quickest accurate picture:
 
 1. Read the root [project README](../README.md).
-2. Read `ui-polish.md` for the final active theme.
-3. Read `testing-quality-review.md` for QA evidence and boundaries.
-4. Use catalog, inventory, payment, shipping, and reporting documents only when detailed evidence is needed.
+2. Read [Portfolio Presentation](portfolio-presentation.md) for the recruiter-facing case study and screenshot gallery.
+3. Read `ui-polish.md` for the final active theme.
+4. Read `testing-quality-review.md` for QA evidence and boundaries.
+5. Use detailed scope documents only when deeper catalog, inventory, payment, shipping, reporting, or implementation evidence is needed.
 
 ## Important Boundaries
 

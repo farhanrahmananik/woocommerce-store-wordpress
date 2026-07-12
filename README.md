@@ -15,7 +15,29 @@ The project demonstrates practical WordPress, WooCommerce, PHP theme development
 | Active final theme | Custom classic PHP theme: `desknest-storefront` |
 | Quality review | Scope 22 QA completed; 4 storefront defects fixed and retested |
 | Production deployment | Not deployed; no public live demo exists |
-| Portfolio media | Screenshots and presentation media are planned for Scope 24 and are not yet committed |
+| Portfolio media | Scope 24 includes 13 curated and validated storefront screenshots plus a portfolio presentation |
+
+## Storefront Preview
+
+DeskNest now includes a curated storefront screenshot set for quick portfolio review. The full recruiter-facing case study and complete screenshot gallery are available in [Portfolio Presentation](docs/portfolio-presentation.md).
+
+![DeskNest desktop homepage with navigation, hero message, calls to action, and workspace-category section](docs/screenshots/desktop/desknest-homepage-desktop-1440x1000.png)
+
+| Shop archive | Selected variable product |
+| --- | --- |
+| ![DeskNest desktop shop archive with product grid and sorting controls](docs/screenshots/desktop/desknest-shop-desktop-1440x1000.png) | ![DeskNest desktop variable product page with selected 60 cm size variation and enabled add-to-cart state](docs/screenshots/desktop/desknest-variable-product-selected-desktop-1440x1000.png) |
+
+| Cart workflow | Checkout workflow |
+| --- | --- |
+| ![DeskNest desktop cart with two products, coupon area, shipping, and order total](docs/screenshots/desktop/desknest-cart-desktop-1440x1000.png) | ![DeskNest desktop checkout with blank privacy-safe fields and order summary](docs/screenshots/desktop/desknest-checkout-desktop-1440x1000.png) |
+
+| Customer account access | Review the full gallery |
+| --- | --- |
+| ![DeskNest desktop logged-out account page with login and registration forms](docs/screenshots/desktop/desknest-account-logged-out-desktop-1440x1000.png) | The full case study includes all 13 curated desktop and mobile storefront views, implementation highlights, QA evidence, and honest project boundaries. |
+
+| Mobile homepage | Open mobile navigation |
+| --- | --- |
+| ![DeskNest mobile homepage showing compact header, hero content, and storefront calls to action](docs/screenshots/mobile/desknest-homepage-mobile-390x844.png) | ![DeskNest mobile navigation drawer open with storefront navigation links](docs/screenshots/mobile/desknest-mobile-navigation-open-390x844.png) |
 
 ## Store Concept
 
@@ -90,6 +112,8 @@ It was the original custom block-theme implementation from earlier scopes and is
 | --- | --- |
 | `README.md` | GitHub-facing project overview |
 | `docs/` | Scope records, architecture notes, QA evidence, and documentation index |
+| `docs/portfolio-presentation.md` | Recruiter-facing DeskNest case study and complete screenshot gallery |
+| `docs/screenshots/` | Curated validated desktop and mobile storefront screenshots |
 | `app/public/wp-content/themes/desknest-storefront/` | Final tracked custom WooCommerce storefront theme |
 | `app/public/wp-content/themes/desknest/` | Earlier tracked rollback block theme |
 | `.gitignore` | Keeps WordPress core, runtime files, uploads, secrets, plugins, and generated files out of Git |
@@ -118,6 +142,7 @@ Start with the full documentation index:
 
 Best current-state references:
 
+- [Portfolio Presentation](docs/portfolio-presentation.md) - recruiter-facing case study and complete screenshot gallery.
 - [UI Polish](docs/ui-polish.md) – final active `desknest-storefront` theme architecture and UI implementation.
 - [Testing & Quality Review](docs/testing-quality-review.md) – Scope 22 QA evidence, limitations, and defect retesting.
 - [Product Catalog](docs/product-catalog.md) – implemented product categories and products.
@@ -138,9 +163,11 @@ Security work is local-development-safe only: no production WAF, CDN, rate limit
 
 Performance work documents a LocalWP baseline and asset-loading review. It does not claim production Lighthouse scores, Core Web Vitals, production caching, CDN behavior, or deployed performance.
 
-## Screenshot and Portfolio Media Status
+## Portfolio Presentation
 
-No repository screenshots, GitHub Pages presentation, LinkedIn preview assets, Open Graph images, or portfolio media files are committed yet. These are planned for Scope 24.
+Scope 24 organizes 13 curated storefront screenshots under `docs/screenshots/desktop/` and `docs/screenshots/mobile/`. The full [Portfolio Presentation](docs/portfolio-presentation.md) contains implementation highlights, workflow evidence, responsive views, testing evidence, and project boundaries.
+
+GitHub Pages and LinkedIn/Open Graph preview assets remain deferred to later scopes.
 
 ## Known Limitations
 
