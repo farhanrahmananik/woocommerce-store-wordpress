@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>DeskNest — Local WordPress/WooCommerce Portfolio Project</title>
+	<meta name="description" content="DeskNest is a local WordPress/WooCommerce portfolio implementation: a Germany-first workspace-accessories store with a custom PHP theme, 24 products, documented QA, and honest project boundaries. This page is a static portfolio presentation.">
+	<link rel="stylesheet" href="./assets/css/portfolio.css">
+</head>
+<body>
+
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<header class="site-header">
+		<div class="site-header__inner">
+			<a class="brand" href="#overview">
+				<span class="brand__name">DeskNest</span>
+				<span class="brand__tag">WooCommerce Portfolio Project</span>
+			</a>
+
+			<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+				<span class="nav-toggle__bars" aria-hidden="true"></span>
+				Menu
+			</button>
+
+			<nav id="site-nav" class="site-nav" aria-label="Page sections">
+				<ul>
+					<li><a href="#overview">Overview</a></li>
+					<li><a href="#implementation">Implementation</a></li>
+					<li><a href="#gallery">Gallery</a></li>
+					<li><a href="#qa">QA</a></li>
+					<li><a href="#boundaries">Boundaries</a></li>
+					<li>
+						<a class="btn btn--primary btn--small" href="https://github.com/farhanrahmananik/woocommerce-store-wordpress" rel="noopener noreferrer">
+							GitHub repository
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main">
+
+		<!-- ================================================================ -->
+		<section class="hero" id="overview" aria-labelledby="hero-title">
+			<div class="container hero__inner">
+				<div class="hero__copy">
+					<p class="eyebrow">Local WordPress / WooCommerce implementation · Static portfolio presentation</p>
+					<h1 id="hero-title">DeskNest — a Germany-first WooCommerce store, built and documented like a real project.</h1>
+					<p class="hero__lead">
+						DeskNest is a focused desk-setup and workspace-accessories store concept for remote
+						professionals, developers, freelancers, and students. It was implemented locally with
+						WordPress, WooCommerce, and a custom classic PHP theme — then reviewed, debugged, and
+						documented scope by scope.
+					</p>
+
+					<div class="note" role="note">
+						<p>
+							<strong>Where you are:</strong> GitHub Pages hosts only this static presentation.
+							WordPress and WooCommerce do not run here, and there is no public live store demo
+							or production deployment. The screenshots and facts below come from the local
+							implementation and its repository documentation.
+						</p>
+					</div>
+
+					<div class="hero__actions">
+						<a class="btn btn--primary" href="https://github.com/farhanrahmananik/woocommerce-store-wordpress" rel="noopener noreferrer">View the repository</a>
+						<a class="btn btn--ghost" href="https://github.com/farhanrahmananik/woocommerce-store-wordpress/blob/main/docs/portfolio-presentation.md" rel="noopener noreferrer">Read the case study</a>
+						<a class="btn btn--ghost" href="https://github.com/farhanrahmananik/woocommerce-store-wordpress/blob/main/docs/README.md" rel="noopener noreferrer">Browse the documentation</a>
+					</div>
+				</div>
+
+				<div class="hero__visual">
+					<figure class="hero__shot hero__shot--desktop">
+						<img src="./screenshots/desktop/desknest-homepage-desktop-1440x1000.png"
+							width="1440" height="1000" decoding="async"
+							alt="DeskNest desktop homepage with navigation, hero message, calls to action, and workspace-category section">
+					</figure>
+					<figure class="hero__shot hero__shot--mobile">
+						<img src="./screenshots/mobile/desknest-homepage-mobile-390x844.png"
+							width="390" height="844" decoding="async"
+							alt="DeskNest mobile homepage showing compact header, hero content, and storefront calls to action">
+					</figure>
+				</div>
+			</div>
+		</section>
+
+		<!-- ================================================================ -->
+		<section class="section" id="snapshot" aria-labelledby="snapshot-title">
+			<div class="container">
+				<h2 id="snapshot-title">Project snapshot</h2>
+				<p class="section__intro">
+					Verified implementation facts from the repository documentation — not marketing or
+					performance claims.
+				</p>
+
+				<ul class="stats" role="list">
+					<li class="stat">
+						<span class="stat__value">24</span>
+						<span class="stat__label">published products</span>
+					</li>
+					<li class="stat">
+						<span class="stat__value">5</span>
+						<span class="stat__label">variable products</span>
+					</li>
+					<li class="stat">
+						<span class="stat__value">11</span>
+						<span class="stat__label">product variations</span>
+					</li>
+					<li class="stat">
+						<span class="stat__value">3</span>
+						<span class="stat__label">global attributes</span>
+					</li>
+					<li class="stat">
+						<span class="stat__value">13</span>
+						<span class="stat__label">curated screenshots</span>
+					</li>
+					<li class="stat">
+						<span class="stat__value">1</span>
+						<span class="stat__label">custom WooCommerce storefront theme</span>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- ================================================================ -->
+		<section class="section section--alt" id="concept" aria-labelledby="concept-title">
+			<div class="container">
+				<h2 id="concept-title">Commercial concept</h2>
+				<div class="split">
+					<div>
+						<p>
+							DeskNest sells practical, well-designed desk-setup and productivity accessories:
+							ergonomic essentials, desk organization, lighting and ambience, cable management,
+							productivity accessories, and curated bundles — six commercial categories priced
+							in EUR for a Germany-first market.
+						</p>
+						<p>
+							The concept is intentionally narrow. Product mix, pricing, category structure,
+							copy, and shipping assumptions were designed around one credible commercial
+							niche rather than a generic tutorial store.
+						</p>
+					</div>
+					<div>
+						<h3>Target customers</h3>
+						<ul class="checklist">
+							<li>Remote and hybrid professionals</li>
+							<li>Developers and multi-device workspace users</li>
+							<li>Freelancers and independent creators</li>
+							<li>Students and home-office users</li>
+							<li>Germany-first buyers, with EU-friendly future positioning</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ================================================================ -->
+		<section class="section" id="implementation" aria-labelledby="implementation-title">
+			<div class="container">
+				<h2 id="implementation-title">Implementation highlights</h2>
+				<p class="section__intro">
+					Everything below was implemented and validated in the local WooCommerce environment and
+					is recorded in the repository's scope documentation.
+				</p>
+
+				<div class="cards">
+					<article class="card">
+						<h3>Catalog &amp; Inventory</h3>
+						<ul>
+							<li>6 commercial categories, 24 published products with EUR pricing and a consistent SKU strategy.</li>
+							<li>Quantity tracking on all 19 simple products and 11 variations.</li>
+							<li>Intentional low-stock and out-of-stock scenarios for realistic storefront states.</li>
+						</ul>
+					</article>
+
+					<article class="card">
+						<h3>Attributes &amp; Variations</h3>
+						<ul>
+							<li>3 global attributes with 9 terms.</li>
+							<li>5 variable products with 11 variations, each with its own SKU, price, and stock.</li>
+							<li>Selected-variation workflow with updated SKU, price, stock, and add-to-cart state.</li>
+						</ul>
+					</article>
+
+					<article class="card">
+						<h3>Storefront UX</h3>
+						<ul>
+							<li>Custom classic PHP theme <code>desknest-storefront</code> — no page builder.</li>
+							<li><code>theme.json</code> design tokens, reusable template parts, and selected WooCommerce template overrides.</li>
+							<li>Responsive navigation, product cards, and shop/category archives.</li>
+						</ul>
+					</article>
+
+					<article class="card">
+						<h3>Cart &amp; Checkout</h3>
+						<ul>
+							<li>Classic Cart implemented through a styled WooCommerce template override.</li>
+							<li>Checkout Block integrated and styled with scoped, block-compatible CSS.</li>
+							<li>4 realistic local coupons configured and validated.</li>
+						</ul>
+					</article>
+
+					<article class="card">
+						<h3>Customer &amp; Operations</h3>
+						<ul>
+							<li>Registration, login, dashboard, orders, addresses, and account-details states styled locally.</li>
+							<li>Order-management workflow validated against one development order.</li>
+							<li>7 local-safe product reviews; local-development-only BACS payment method; one Germany-only shipping zone with flat rate and a free-shipping threshold.</li>
+						</ul>
+					</article>
+
+					<article class="card">
+						<h3>QA &amp; Documentation</h3>
+						<ul>
+							<li>Structured QA pass: static checks, route checks, responsive and keyboard checks, and regression retests.</li>
+							<li>4 confirmed storefront defects fixed and retested locally.</li>
+							<li>Scope-by-scope Markdown documentation covering architecture, configuration, and evidence.</li>
+						</ul>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- ================================================================ -->
+		<section class="section section--alt" id="architecture" aria-labelledby="architecture-title">
+			<div class="container">
+				<h2 id="architecture-title">Technical architecture</h2>
+				<p class="section__intro">
+					The stack below describes the <strong>local application</strong>. The page you are
+					reading is a separate, framework-free static presentation — plain HTML, CSS, and a small
+					amount of vanilla JavaScript.
+				</p>
+
+				<ul class="chips" role="list">
+					<li class="chip">WordPress 7.0</li>
+					<li class="chip">WooCommerce 10.9.3</li>
+					<li class="chip">PHP 8.2.29</li>
+					<li class="chip">MySQL 8.4.0</li>
+					<li class="chip">HTML5</li>
+					<li class="chip">CSS3</li>
+					<li class="chip">Vanilla JavaScript (minimal)</li>
+					<li class="chip">Git &amp; GitHub</li>
+					<li class="chip">LocalWP on Windows 11</li>
+				</ul>
+
+				<p class="section__footnote">
+					The custom theme lives at
+					<a href="https://github.com/farhanrahmananik/woocommerce-store-wordpress/tree/main/app/public/wp-content/themes/desknest-storefront" rel="noopener noreferrer"><code>app/public/wp-content/themes/desknest-storefront</code></a>
+					in the repository. WordPress core and the WooCommerce plugin are intentionally not tracked.
+				</p>
+			</div>
+		</section>
+
+		<!-- ================================================================ -->
+		<section class="section" id="gallery" aria-labelledby="gallery-title">
+			<div class="container">
+				<h2 id="gallery-title">Screenshot gallery</h2>
+				<p class="section__intro">
+					All 13 curated screenshots from the repository, captured locally at 1440&times;1000
+					(desktop) and 390&times;844 (mobile). Every screenshot links directly to the full image;
+					with JavaScript enabled it opens in an accessible preview dialog.
+				</p>
+
+				<h3>Desktop storefront</h3>
+				<div class="gallery gallery--desktop">
+					<figure class="shot">
+						<a class="shot__link" href="./screenshots/desktop/desknest-homepage-desktop-1440x1000.png">
+							<img src="./screenshots/desktop/desknest-homepage-desktop-1440x1000.png"
+								width="1440" height="1000" loading="lazy" decoding="async"
+								alt="DeskNest desktop homepage with navigation, hero message, calls to action, and workspace-category section">
+						</a>
+						<figcaption>Homepage — hero messaging, calls to action, and category browsing.</figcaption>
+					</figure>
+
+					<figure class="shot">
+						<a class="shot__link" href="./screenshots/desktop/desknest-shop-desktop-1440x1000.png">
+							<img src="./screenshots/desktop/desknest-shop-desktop-1440x1000.png"
+								width="1440" height="1000" loading="lazy" decoding="async"
+								alt="DeskNest desktop shop archive with sorting controls, result count, and product-card grid">
+						</a>
+						<figcaption>Shop archive — sorting, result count, and product cards.</figcaption>
+					</figure>
+
+					<figure class="shot">
+						<a class="shot__link" href="./screenshots/desktop/desknest-ergonomic-category-desktop-1440x1000.png">
+							<img src="./screenshots/desktop/desknest-ergonomic-category-desktop-1440x1000.png"
+								width="1440" height="1000" loading="lazy" decoding="async"
+								alt="DeskNest Ergonomic Essentials category archive with category-specific product browsing">
+						</a>
+						<figcaption>Category archive — focused Ergonomic Essentials browsing.</figcaption>
+					</figure>
+
+					<figure class="shot">
+						<a class="shot__link" href="./screenshots/desktop/desknest-simple-product-desktop-1440x1000.png">
+							<img src="./screenshots/desktop/desknest-simple-product-desktop-1440x1000.png"
+								width="1440" height="1000" loading="lazy" decoding="async"
+								alt="DeskNest simple product page for a memory-foam wrist rest set with price, stock state, and add-to-cart">
+						</a>
+						<figcaption>Simple product — hierarchy, price, stock state, SKU, and add-to-cart.</figcaption>
+					</figure>
+
+					<figure class="shot">
+						<a class="shot__link" href="./screenshots/desktop/desknest-variable-product-selected-desktop-1440x1000.png">
+							<img src="./screenshots/desktop/desknest-variable-product-selected-desktop-1440x1000.png"
+								width="1440" height="1000" loading="lazy" decoding="async"
+								alt="DeskNest desktop variable product page with a selected size variation and enabled add-to-cart state">
+						</a>
+						<figcaption>Variable product — selected variation with updated SKU, stock, and price.</figcaption>
+					</figure>
+
+					<figure class="shot">
+						<a class="shot__link" href="./screenshots/desktop/desknest-product-review-desktop-1440x1000.png">
+							<img src="./screenshots/desktop/desknest-product-review-desktop-1440x1000.png"
+								width="1440" height="1000" loading="lazy" decoding="async"
+								alt="DeskNest product review section with rating display, local-safe review content, and review form">
+						</a>
+						<figcaption>Product reviews — ratings, local-safe review content, and review form.</figcaption>
+					</figure>
+
+					<figure class="shot">
+						<a class="shot__link" href="./screenshots/desktop/desknest-cart-desktop-1440x1000.png">
+							<img src="./screenshots/desktop/desknest-cart-desktop-1440x1000.png"
+								width="1440" height="1000" loading="lazy" decoding="async"
+								alt="DeskNest desktop cart with two products, coupon area, Germany shipping, and order total">
+						</a>
+						<figcaption>Cart — Classic Cart with coupon area, shipping, and totals.</figcaption>
+					</figure>
+
+					<figure class="shot">
+						<a class="shot__link" href="./screenshots/desktop/desknest-checkout-desktop-1440x1000.png">
+							<img src="./screenshots/desktop/desknest-checkout-desktop-1440x1000.png"
+								width="1440" height="1000" loading="lazy" decoding="async"
+								alt="DeskNest desktop checkout with blank privacy-safe fields and a two-product order summary">
+						</a>
+						<figcaption>Checkout — Checkout Block with blank, privacy-safe fields. No order was submitted.</figcaption>
+					</figure>
+
+					<figure class="shot">
+						<a class="shot__link" href="./screenshots/desktop/desknest-account-logged-out-desktop-1440x1000.png">
+							<img src="./screenshots/desktop/desknest-account-logged-out-desktop-1440x1000.png"
+								width="1440" height="1000" loading="lazy" decoding="async"
+								alt="DeskNest desktop logged-out account page with login and registration forms">
+						</a>
+						<figcaption>Customer account — logged-out entry point with login and registration.</figcaption>
+					</figure>
+				</div>
+
+				<h3>Mobile storefront</h3>
+				<div class="gallery gallery--mobile">
+					<figure class="shot shot--portrait">
+						<a class="shot__link" href="./screenshots/mobile/desknest-homepage-mobile-390x844.png">
+							<img src="./screenshots/mobile/desknest-homepage-mobile-390x844.png"
+								width="390" height="844" loading="lazy" decoding="async"
+								alt="DeskNest mobile homepage showing compact header, hero content, and storefront calls to action">
+						</a>
+						<figcaption>Mobile homepage — compact header and single-column rhythm.</figcaption>
+					</figure>
+
+					<figure class="shot shot--portrait">
+						<a class="shot__link" href="./screenshots/mobile/desknest-mobile-navigation-open-390x844.png">
+							<img src="./screenshots/mobile/desknest-mobile-navigation-open-390x844.png"
+								width="390" height="844" loading="lazy" decoding="async"
+								alt="DeskNest mobile navigation drawer open with storefront navigation links">
+						</a>
+						<figcaption>Mobile navigation — open menu state.</figcaption>
+					</figure>
+
+					<figure class="shot shot--portrait">
+						<a class="shot__link" href="./screenshots/mobile/desknest-shop-mobile-390x844.png">
+							<img src="./screenshots/mobile/desknest-shop-mobile-390x844.png"
+								width="390" height="844" loading="lazy" decoding="async"
+								alt="DeskNest mobile shop archive with single-column product card layout, sorting control, and add-to-cart buttons">
+						</a>
+						<figcaption>Mobile shop — single-column catalog cards.</figcaption>
+					</figure>
+
+					<figure class="shot shot--portrait">
+						<a class="shot__link" href="./screenshots/mobile/desknest-variable-product-selected-mobile-390x844.png">
+							<img src="./screenshots/mobile/desknest-variable-product-selected-mobile-390x844.png"
+								width="390" height="844" loading="lazy" decoding="async"
+								alt="DeskNest mobile variable product page with a selected 60 cm variation, updated price, stock state, and enabled add-to-cart button">
+						</a>
+						<figcaption>Mobile variable product — selected variation state.</figcaption>
+					</figure>
+				</div>
+			</div>
+		</section>
+
+		<!-- ================================================================ -->
+		<section class="section section--alt" id="qa" aria-labelledby="qa-title">
+			<div class="container">
+				<h2 id="qa-title">QA and engineering evidence</h2>
+				<p class="section__intro">
+					The repository documents a structured, scope-based review of the local storefront.
+					Evidence includes:
+				</p>
+
+				<ul class="checklist checklist--columns">
+					<li>Responsive viewport review at 390, 480, 768, 900, and 1440 pixel widths</li>
+					<li>Product variation selection and reset workflow</li>
+					<li>Cart and coupon behavior</li>
+					<li>Checkout validation states</li>
+					<li>Customer account states</li>
+					<li>Order-management workflow against one development order</li>
+					<li>Product review presentation</li>
+					<li>Keyboard and focus-state review of interactive states</li>
+					<li>Regression retests of four fixed storefront defects</li>
+					<li>Local security-hardening review</li>
+					<li>LocalWP performance baseline and asset review</li>
+				</ul>
+
+				<div class="note" role="note">
+					<p>
+						These are local, scope-based checks — not certifications. This project does not claim
+						a full accessibility audit, a complete browser/device matrix, a production security
+						review, or production performance scores.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- ================================================================ -->
+		<section class="section" id="boundaries" aria-labelledby="boundaries-title">
+			<div class="container">
+				<div class="boundaries">
+					<h2 id="boundaries-title">Honest project boundaries</h2>
+					<p>
+						DeskNest is a <strong>local WordPress/WooCommerce portfolio implementation</strong>.
+						GitHub Pages hosts only this static presentation — WordPress and WooCommerce do not
+						run on GitHub Pages. To keep the record honest:
+					</p>
+					<ul class="boundaries__list">
+						<li>No public live store demo and no production deployment exist.</li>
+						<li>No real payment processing and no real bank credentials — the single BACS method is local-development-only.</li>
+						<li>No real customer data; reviews and the one order are local development data.</li>
+						<li>No carrier integration or shipment fulfilment — shipping is a local configuration.</li>
+						<li>No CI/CD, GitHub Actions, or Docker workflow.</li>
+						<li>No WCAG certification or full accessibility compliance claim — accessibility work was focused keyboard/focus review.</li>
+						<li>No penetration testing or production security certification — security work was a local hardening review.</li>
+						<li>No production Lighthouse, PageSpeed, or Core Web Vitals scores — performance work was a LocalWP baseline and asset review.</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!-- ================================================================ -->
+		<section class="section section--alt" id="docs" aria-labelledby="docs-title">
+			<div class="container">
+				<h2 id="docs-title">Explore the repository and documentation</h2>
+				<p class="section__intro">
+					The full implementation record is public. These links open the repository on GitHub.
+				</p>
+
+				<ul class="doc-links" role="list">
+					<li>
+						<a href="https://github.com/farhanrahmananik/woocommerce-store-wordpress" rel="noopener noreferrer">
+							<span class="doc-links__title">GitHub repository</span>
+							<span class="doc-links__desc">Source, theme code, documentation, and history</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://github.com/farhanrahmananik/woocommerce-store-wordpress/blob/main/README.md" rel="noopener noreferrer">
+							<span class="doc-links__title">Project README</span>
+							<span class="doc-links__desc">Project overview, status, and stack</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://github.com/farhanrahmananik/woocommerce-store-wordpress/blob/main/docs/portfolio-presentation.md" rel="noopener noreferrer">
+							<span class="doc-links__title">Portfolio case study</span>
+							<span class="doc-links__desc">Recruiter-facing walkthrough with full gallery</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://github.com/farhanrahmananik/woocommerce-store-wordpress/blob/main/docs/README.md" rel="noopener noreferrer">
+							<span class="doc-links__title">Documentation index</span>
+							<span class="doc-links__desc">All scope records and architecture notes</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://github.com/farhanrahmananik/woocommerce-store-wordpress/blob/main/docs/ui-polish.md" rel="noopener noreferrer">
+							<span class="doc-links__title">UI Polish</span>
+							<span class="doc-links__desc">Final theme architecture and storefront UI</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://github.com/farhanrahmananik/woocommerce-store-wordpress/blob/main/docs/testing-quality-review.md" rel="noopener noreferrer">
+							<span class="doc-links__title">Testing &amp; Quality Review</span>
+							<span class="doc-links__desc">QA layers, evidence, and defect retesting</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://github.com/farhanrahmananik/woocommerce-store-wordpress/blob/main/docs/product-catalog.md" rel="noopener noreferrer">
+							<span class="doc-links__title">Product Catalog</span>
+							<span class="doc-links__desc">Categories and the 24-product catalog record</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://github.com/farhanrahmananik/woocommerce-store-wordpress/blob/main/docs/inventory-stock-management.md" rel="noopener noreferrer">
+							<span class="doc-links__title">Inventory &amp; Stock Management</span>
+							<span class="doc-links__desc">SKU strategy, stock levels, and out-of-stock scenarios</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<p class="site-footer__statement">Static portfolio presentation for a local WordPress/WooCommerce implementation.</p>
+			<p class="site-footer__meta">
+				DeskNest ·
+				<a href="https://github.com/farhanrahmananik/woocommerce-store-wordpress" rel="noopener noreferrer">github.com/farhanrahmananik/woocommerce-store-wordpress</a>
+			</p>
+		</div>
+	</footer>
+
+	<dialog class="shot-dialog" id="shot-dialog" aria-label="Screenshot preview">
+		<button type="button" class="shot-dialog__close" id="shot-dialog-close">
+			<span aria-hidden="true">&times;</span>
+			<span class="visually-hidden">Close screenshot preview</span>
+		</button>
+		<figure class="shot-dialog__figure">
+			<img id="shot-dialog-image" alt="">
+			<figcaption id="shot-dialog-caption"></figcaption>
+		</figure>
+	</dialog>
+
+	<script src="./assets/js/portfolio.js" defer></script>
+</body>
+</html>
