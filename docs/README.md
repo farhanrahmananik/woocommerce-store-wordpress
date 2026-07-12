@@ -6,12 +6,18 @@ Each scope document records the project state and boundaries at that scope's com
 
 For the final current storefront and QA state, prioritize `ui-polish.md` and `testing-quality-review.md`.
 
+Verified static portfolio presentation: https://farhanrahmananik.github.io/woocommerce-store-wordpress/
+
+This GitHub Pages page is a static portfolio presentation for reviewers. It does not run WordPress or WooCommerce; the actual WordPress/WooCommerce implementation remains local.
+
 ## Documentation Navigation
 
 ### Documentation Overview
 
 - [Project Documentation Index](README.md) - this navigation file for the repository documentation set.
+- [Static GitHub Pages Portfolio Landing Page](index.html) - static HTML/CSS/JS reviewer presentation served from `/docs`.
 - [Portfolio Presentation](portfolio-presentation.md) - recruiter-facing DeskNest case study and complete screenshot gallery.
+- [Static Portfolio Assets](assets/) - CSS and JavaScript used by the GitHub Pages landing page.
 
 ### Product and Business Architecture
 
@@ -71,4 +77,6 @@ For a reviewer who wants the quickest accurate picture:
 
 - The repository does not include a portable database snapshot.
 - WordPress core, WooCommerce plugin files, uploads, LocalWP runtime files, and `wp-config.php` are intentionally not tracked.
+- GitHub Pages hosts only the static portfolio presentation; it is not a live WooCommerce store and does not run WordPress/WooCommerce.
+- LinkedIn/Open Graph preview optimization remains separate and deferred to Scope 26.
 - Some earlier documents describe historical states from their own scope, such as the earlier `desknest` block theme. Current final UI implementation details are in `ui-polish.md`.

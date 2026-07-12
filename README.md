@@ -14,12 +14,17 @@ The project demonstrates practical WordPress, WooCommerce, PHP theme development
 | Product types | 19 simple products, 5 variable products, 11 variations |
 | Active final theme | Custom classic PHP theme: `desknest-storefront` |
 | Quality review | Scope 22 QA completed; 4 storefront defects fixed and retested |
-| Production deployment | Not deployed; no public live demo exists |
+| Static portfolio page | Scope 25 complete; verified GitHub Pages static portfolio landing page is live |
+| Production deployment | WordPress/WooCommerce is not deployed; no public live WooCommerce store demo exists |
 | Portfolio media | Scope 24 includes 13 curated and validated storefront screenshots plus a portfolio presentation |
 
 ## Storefront Preview
 
 DeskNest now includes a curated storefront screenshot set for quick portfolio review. The full recruiter-facing case study and complete screenshot gallery are available in [Portfolio Presentation](docs/portfolio-presentation.md).
+
+Static portfolio presentation: https://farhanrahmananik.github.io/woocommerce-store-wordpress/
+
+This GitHub Pages URL is a static HTML/CSS/JS portfolio landing page for reviewers. It is not a live WooCommerce store; the WordPress/WooCommerce application runs locally and no production WordPress/WooCommerce deployment exists.
 
 ![DeskNest desktop homepage with navigation, hero message, calls to action, and workspace-category section](docs/screenshots/desktop/desknest-homepage-desktop-1440x1000.png)
 
@@ -112,6 +117,9 @@ It was the original custom block-theme implementation from earlier scopes and is
 | --- | --- |
 | `README.md` | GitHub-facing project overview |
 | `docs/` | Scope records, architecture notes, QA evidence, and documentation index |
+| `docs/index.html` | Static GitHub Pages portfolio landing page |
+| `docs/assets/` | CSS and JavaScript assets for the static portfolio page |
+| `docs/.nojekyll` | GitHub Pages configuration marker for serving the static portfolio assets |
 | `docs/portfolio-presentation.md` | Recruiter-facing DeskNest case study and complete screenshot gallery |
 | `docs/screenshots/` | Curated validated desktop and mobile storefront screenshots |
 | `app/public/wp-content/themes/desknest-storefront/` | Final tracked custom WooCommerce storefront theme |
@@ -142,6 +150,7 @@ Start with the full documentation index:
 
 Best current-state references:
 
+- [Static Portfolio Landing Page](https://farhanrahmananik.github.io/woocommerce-store-wordpress/) - verified GitHub Pages static portfolio presentation; not a live WooCommerce store.
 - [Portfolio Presentation](docs/portfolio-presentation.md) - recruiter-facing case study and complete screenshot gallery.
 - [UI Polish](docs/ui-polish.md) – final active `desknest-storefront` theme architecture and UI implementation.
 - [Testing & Quality Review](docs/testing-quality-review.md) – Scope 22 QA evidence, limitations, and defect retesting.
@@ -165,13 +174,13 @@ Performance work documents a LocalWP baseline and asset-loading review. It does 
 
 ## Portfolio Presentation
 
-Scope 24 organizes 13 curated storefront screenshots under `docs/screenshots/desktop/` and `docs/screenshots/mobile/`. The full [Portfolio Presentation](docs/portfolio-presentation.md) contains implementation highlights, workflow evidence, responsive views, testing evidence, and project boundaries.
+Scope 24 organizes 13 curated storefront screenshots under `docs/screenshots/desktop/` and `docs/screenshots/mobile/`. Scope 25 adds the verified [static GitHub Pages portfolio landing page](https://farhanrahmananik.github.io/woocommerce-store-wordpress/) built from `docs/index.html`, `docs/assets/`, and the curated screenshot set.
 
-GitHub Pages and LinkedIn/Open Graph preview assets remain deferred to later scopes.
+The full [Portfolio Presentation](docs/portfolio-presentation.md) contains implementation highlights, workflow evidence, responsive views, testing evidence, and project boundaries. LinkedIn/Open Graph preview assets remain deferred to Scope 26.
 
 ## Known Limitations
 
-- No production deployment or public live demo exists.
+- No production WordPress/WooCommerce deployment or public live WooCommerce store demo exists.
 - No real payment credentials, real bank details, carrier integration, shipment fulfilment, or real customer data exists.
 - The validated database state is local and not portable from Git alone.
 - Real product photography and WooCommerce product featured images are not included in the current repository.
